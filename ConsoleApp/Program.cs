@@ -17,7 +17,12 @@ namespace DesignPatterns
         //public DateTime DateOfBirth;
     }
 
-    class Relationships
+    interface IRelationshipBrowser
+    {
+        IEnumerable<Person> FindAllChildren(string name);
+    }
+
+    class Relationships : IRelationshipBrowser
     {
         private readonly List<Tuple<Person, Relationship, Person>> relations =
             new List<Tuple<Person, Relationship, Person>>();
@@ -28,19 +33,25 @@ namespace DesignPatterns
             relations.Add(new Tuple<Person, Relationship, Person>(child, Relationship.Child, parent));
         }
 
-        public IEnumerable<Tuple<Person, Relationship, Person>> Relations => relations;
+        public IEnumerable<Person> FindAllChildren(string name)
+        {
+            foreach (var r in relations.Where(
+                x => x.Item1.Name == name &&
+                     x.Item2 == Relationship.Parent))
+            {
+                yield return r.Item3;
+            }
+        }
     }
 
     class Research
     {
-        public Research(Relationships relationships)
+        public Research(IRelationshipBrowser browser)
         {
-            var relations = relationships.Relations;
-            foreach (var r in relations.Where(
-                x => x.Item1.Name == "John" && 
-                     x.Item2 == Relationship.Parent))
+            var children = browser.FindAllChildren("John");
+            foreach (var child in children)
             {
-                Console.WriteLine($"John has a child called {r.Item3.Name}.");
+                Console.WriteLine($"John has a child called {child.Name}.");
             }
         }
     }
@@ -57,7 +68,7 @@ namespace DesignPatterns
             relationships.AddParentChild(parent, child1);
             relationships.AddParentChild(parent, child2);
 
-            var research = new Research(relationships);            
+            var research = new Research(relationships);
         }
     }
 }
