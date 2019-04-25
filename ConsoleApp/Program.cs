@@ -50,6 +50,12 @@ namespace DesignPatterns
             var rec = new Rectangle(2, 3);
 
             Console.WriteLine($"{rec} has area: {Area(rec)}");
+
+            var sqr = new Square(4);
+
+            Console.WriteLine($"{sqr} has area: {Area(sqr)}");
+
+
         }
     }
 }
