@@ -13,14 +13,22 @@ namespace DesignPatterns
 
         }
 
-        interface IMachine
+        interface IPrinter
         {
             void Print(Document doc);
+        }
+
+        interface IScanner
+        {
             void Scan(Document doc);
+        }
+
+        interface IFax
+        {
             void Fax(Document doc);
         }
 
-        class MultiFunctionPrinter : IMachine
+        class MultiFunctionPrinter : IPrinter, IScanner, IFax
         {
             public void Fax(Document doc)
             {
@@ -38,16 +46,19 @@ namespace DesignPatterns
             }
         }
 
-        class OldFashionedPrinter : IMachine
+        class OldFashionedPrinter : IPrinter
         {
-            public void Fax(Document doc)
+            public void Print(Document doc)
             {
                 throw new NotImplementedException();
             }
+        }
 
+        class PhotoCopier : IPrinter, IScanner
+        {
             public void Print(Document doc)
             {
-                // TODO to be implemented
+                throw new NotImplementedException();
             }
 
             public void Scan(Document doc)
