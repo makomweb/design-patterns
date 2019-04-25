@@ -8,9 +8,9 @@ namespace DesignPatterns
 {
     class Rectangle
     {
-        public int Width { get; set; }
+        public virtual int Width { get; set; }
 
-        public int Height { get; set; }
+        public virtual int Height { get; set; }
 
         public Rectangle(int width, int height)
         {
@@ -30,12 +30,12 @@ namespace DesignPatterns
         {
         }
 
-        public new int Width
+        public override int Width
         {
             set { base.Width = value; base.Height = value; }
         }
 
-        public new int Height
+        public override int Height
         {
             set { base.Width = value; base.Height = value; }
         }
