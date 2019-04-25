@@ -96,6 +96,37 @@ namespace DesignPatterns
         }
     }
 
+    class SizeSpecification : ISpecification<Product>
+    {
+        private readonly Size _size;
+
+        public SizeSpecification(Size size)
+        {
+            _size = size;
+        }
+        public bool IsSatisfied(Product item)
+        {
+            return item.Size == _size;
+        }
+    }
+
+    class AndSpecification<T> : ISpecification<T>
+    {
+        private readonly ISpecification<T> _one;
+        private readonly ISpecification<T> _other;
+
+        public AndSpecification(ISpecification<T> one, ISpecification<T> other)
+        {
+            _one = one;
+            _other = other;
+        }
+
+        public bool IsSatisfied(T item)
+        {
+            return _one.IsSatisfied(item) && _other.IsSatisfied(item);
+        }
+    }
+
     class AdvancedProductFilter : IFilter<Product>
     {
         public IEnumerable<Product> Filter(IEnumerable<Product> items, ISpecification<Product> specification)
@@ -132,6 +163,12 @@ namespace DesignPatterns
             foreach (var p in apf.Filter(products, new ColorSpecification(Color.Green)))
             {
                 Console.WriteLine($" - {p.Name} is green");
+            }
+            
+            Console.WriteLine("Large blue products: ");
+            foreach (var p in apf.Filter(products, new AndSpecification<Product>(new SizeSpecification(Size.Large), new ColorSpecification(Color.Blue))))
+            {
+                Console.WriteLine($" - {p.Name} is large and blue");
             }
         }
     }
