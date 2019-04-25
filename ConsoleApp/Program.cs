@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,8 @@ namespace DesignPatterns
 {
     class Program
     {
+        private const string FilePath = @"c:\Temp\journal.txt";
+
         class Journal
         {
             private readonly List<string> entries = new List<string>();
@@ -30,20 +33,26 @@ namespace DesignPatterns
             {
                 return string.Join(Environment.NewLine, entries);
             }
+        }
 
-            public void Save(string fileName)
+        class Persistence
+        {
+            public static void SaveToFile(Journal j, string filePath, bool overwrite = false)
             {
-                File.WriteAllText(fileName, ToString());
+                if (overwrite || !File.Exists(filePath))
+                {
+                    File.WriteAllText(filePath, j.ToString());
+                }
             }
 
             public static Journal Load(string filePath)
             {
-
+                throw new NotImplementedException();
             }
 
             public void Load(Uri address)
             {
-
+                throw new NotImplementedException();
             }
         }
         
@@ -53,6 +62,10 @@ namespace DesignPatterns
             j.Add("I cried today");
             j.Add("I ate a bug");
             Console.WriteLine(j);
+
+            Persistence.SaveToFile(j, FilePath, true);
+
+            Process.Start(FilePath);
         }
     }
 }
