@@ -23,6 +23,24 @@ namespace DesignPatterns
             return $"{nameof(Width)}: {Width}, {nameof(Height)}: {Height}";
         }
     }
+
+    class Square : Rectangle
+    {
+        public Square(int width) : base(width, width)
+        {
+        }
+
+        public new int Width
+        {
+            set { base.Width = base.Height = value; }
+        }
+
+        public new int Height
+        {
+            set { base.Width = base.Height = value; }
+        }
+    }
+
     class Program
     {
         static int Area(Rectangle r) => r.Width * r.Height;
