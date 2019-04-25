@@ -28,7 +28,9 @@ namespace DesignPatterns
             void Fax(Document doc);
         }
 
-        class MultiFunctionPrinter : IPrinter, IScanner, IFax
+        interface IMultiFunctionDevice : IPrinter, IScanner, IFax { }
+
+        class MultiFunctionPrinter : IMultiFunctionDevice
         {
             public void Fax(Document doc)
             {
