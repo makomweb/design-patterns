@@ -32,12 +32,12 @@ namespace DesignPatterns
 
         public new int Width
         {
-            set { base.Width = base.Height = value; }
+            set { base.Width = value; base.Height = value; }
         }
 
         public new int Height
         {
-            set { base.Width = base.Height = value; }
+            set { base.Width = value; base.Height = value; }
         }
     }
 
@@ -48,14 +48,11 @@ namespace DesignPatterns
         static void Main(string[] args)
         {
             var rec = new Rectangle(2, 3);
-
             Console.WriteLine($"{rec} has area: {Area(rec)}");
 
-            var sqr = new Square(4);
-
+            Rectangle sqr = new Square(4);
+            sqr.Width = 5;
             Console.WriteLine($"{sqr} has area: {Area(sqr)}");
-
-
         }
     }
 }
