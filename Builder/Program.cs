@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Text;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace Builder
@@ -60,6 +57,7 @@ namespace Builder
             root.Name = rootName;
         }
 
+        // not fluent
         public void AddChild(string childName, string childText)
         {
             var e = new HtmlElement(childName, childText);
@@ -106,11 +104,18 @@ namespace Builder
             }
             sb.Append("</ul>");
             WriteLine(sb);
-            
+
+            // ordinary non-fluent builder
             var builder = new HtmlBuilder("ul");
             builder.AddChild("li", "hello");
             builder.AddChild("li", "world");
             WriteLine(builder.ToString());
+
+            // fluent builder
+            sb.Clear();
+            builder.Clear(); // disengage builder from the object it's building, then...
+            builder.AddChildFluent("li", "hello").AddChildFluent("li", "world");
+            WriteLine(builder);
         }
     }
 }
