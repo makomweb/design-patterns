@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "ConsoleApp\ConsoleApp.csproj", "{F3AD98D6-49A7-4238-8608-9BA7C6BBD4B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID-DIP", "SOLID-DIP\SOLID-DIP.csproj", "{C9C4DD75-EAF7-437B-96F2-31CCC14E7738}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{F3AD98D6-49A7-4238-8608-9BA7C6BBD4B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3AD98D6-49A7-4238-8608-9BA7C6BBD4B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3AD98D6-49A7-4238-8608-9BA7C6BBD4B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C9C4DD75-EAF7-437B-96F2-31CCC14E7738}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C9C4DD75-EAF7-437B-96F2-31CCC14E7738}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C9C4DD75-EAF7-437B-96F2-31CCC14E7738}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C9C4DD75-EAF7-437B-96F2-31CCC14E7738}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
