@@ -16,29 +16,31 @@ namespace Factory
     {
         private double _x, _y;
 
+        public static Point NewCartesianPoint(double x, double y)
+        {
+            return new Point(x, y);
+        }
+
+        public static Point NewPolarPoint( double rho, double theta)
+        {
+            return new Point(rho * Math.Cos(theta), rho * Math.Sin(theta));
+        }
+
         /// <summary>
         /// Initialized a point from EITHER cartesian or polar!
         /// </summary>
-        /// <param name="a"></param>
-        /// <param name="b"></param>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
         /// <param name="system"></param>
-        public Point(double a, double b, CoordinateSystem system = CoordinateSystem.Cartesian)
+        private Point(double x, double y)
         {
-            switch (system)
-            {
-                case CoordinateSystem.Cartesian:
-                    _x = a;
-                    _y = b;
-                    break;
+            _x = x;
+            _y = y;
+        }
 
-                case CoordinateSystem.Polar:
-                    _x = a * Math.Cos(b);
-                    _y = a * Math.Sin(b);
-                    break;
-
-                default:
-                    throw new ArgumentOutOfRangeException(nameof(system), system, null);
-            }
+        public override string ToString()
+        {
+            return $"{nameof(_x)}: {_x}, {nameof(_y)}: {_y}";
         }
     }
 
@@ -46,12 +48,9 @@ namespace Factory
     {
         static void Main(string[] args)
         {
-            // The code provided will print ‘Hello World’ to the console.
-            // Press Ctrl+F5 (or go to Debug > Start Without Debugging) to run your app.
-            Console.WriteLine("Hello World!");
-            Console.ReadKey();
+            var point = Point.NewPolarPoint(1.9, Math.PI / 2);
 
-            // Go to http://aka.ms/dotnet-get-started-console to continue learning how to build a console app! 
+            Console.WriteLine(point);
         }
     }
 }
