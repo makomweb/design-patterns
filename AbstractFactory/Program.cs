@@ -62,7 +62,7 @@ namespace AbstractFactory
 
         public HotDrinkMachine()
         {
-#if true
+#if false
             foreach (AvailableDrink drink in Enum.GetValues(typeof(AvailableDrink)))
             {
                 var name = Enum.GetName(typeof(AvailableDrink), drink);
@@ -74,13 +74,20 @@ namespace AbstractFactory
             factories.Add(AvailableDrink.Tea, new TeaFactory());
 #endif
         }
+
+        public IHotDrink MakeDrink(AvailableDrink drink, int amount)
+        {
+            return factories[drink].Prepare(amount);
+        }
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-
+            var m = new HotDrinkMachine();
+            var d = m.MakeDrink(HotDrinkMachine.AvailableDrink.Tea, 5);
+            d.Consume();
         }
     }
 }
