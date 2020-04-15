@@ -24,9 +24,11 @@ namespace Factory
             return $"{nameof(_x)}: {_x}, {nameof(_y)}: {_y}";
         }
 
-        public static PointFactory Factory => new PointFactory();
+        public static Point Origin => new Point(0, 0); // instanciated everytime 'Origin' is being called
 
-        public class PointFactory
+        public static Point OriginField = new Point(0, 0); // initialized once!
+
+        public class Factory
         {
             public static Point NewCartesianPoint(double x, double y)
             {
@@ -44,7 +46,7 @@ namespace Factory
     {
         static void Main(string[] args)
         {
-            var point = Point.PointFactory.NewPolarPoint(1.9, Math.PI / 2);
+            var point = Point.Factory.NewPolarPoint(1.9, Math.PI / 2);
 
             Console.WriteLine(point);
         }
