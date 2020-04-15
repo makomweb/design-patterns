@@ -1,17 +1,7 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Factory
 {
-    public enum CoordinateSystem
-    {
-        Cartesian,
-        Polar
-    }
-
     public static class PointFactory
     {
         public static Point NewCartesianPoint(double x, double y)
