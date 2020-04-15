@@ -24,7 +24,9 @@ namespace Factory
             return $"{nameof(_x)}: {_x}, {nameof(_y)}: {_y}";
         }
 
-        public static class Factory
+        public static PointFactory Factory => new PointFactory();
+
+        public class PointFactory
         {
             public static Point NewCartesianPoint(double x, double y)
             {
@@ -42,7 +44,7 @@ namespace Factory
     {
         static void Main(string[] args)
         {
-            var point = Point.Factory.NewPolarPoint(1.9, Math.PI / 2);
+            var point = Point.PointFactory.NewPolarPoint(1.9, Math.PI / 2);
 
             Console.WriteLine(point);
         }
