@@ -25,7 +25,7 @@ namespace Factory
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="system"></param>
-        public Point(double x, double y)
+        internal Point(double x, double y)
         {
             _x = x;
             _y = y;
