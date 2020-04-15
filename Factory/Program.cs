@@ -2,18 +2,6 @@ using System;
 
 namespace Factory
 {
-    public static class PointFactory
-    {
-        public static Point NewCartesianPoint(double x, double y)
-        {
-            return new Point(x, y);
-        }
-
-        public static Point NewPolarPoint(double rho, double theta)
-        {
-            return new Point(rho * Math.Cos(theta), rho * Math.Sin(theta));
-        }
-    }
 
     public class Point
     {
@@ -25,7 +13,7 @@ namespace Factory
         /// <param name="x"></param>
         /// <param name="y"></param>
         /// <param name="system"></param>
-        internal Point(double x, double y)
+        private Point(double x, double y)
         {
             _x = x;
             _y = y;
@@ -35,13 +23,26 @@ namespace Factory
         {
             return $"{nameof(_x)}: {_x}, {nameof(_y)}: {_y}";
         }
+
+        public static class Factory
+        {
+            public static Point NewCartesianPoint(double x, double y)
+            {
+                return new Point(x, y);
+            }
+
+            public static Point NewPolarPoint(double rho, double theta)
+            {
+                return new Point(rho * Math.Cos(theta), rho * Math.Sin(theta));
+            }
+        }
     }
 
     class Program
     {
         static void Main(string[] args)
         {
-            var point = PointFactory.NewPolarPoint(1.9, Math.PI / 2);
+            var point = Point.Factory.NewPolarPoint(1.9, Math.PI / 2);
 
             Console.WriteLine(point);
         }
