@@ -8,14 +8,21 @@ namespace FactoryAsynchronous
 {
     public class Foo
     {
-        public Task InitAsync()
+        public async Task<Foo> InitAsync()
         {
-            return Task.Delay(100);
+            await Task.Delay(100);
+            return this;
         }
 
-        public Foo()
+        private Foo()
         {
 
+        }
+
+        public static Task<Foo> CreateAsync()
+        {
+            var foo = new Foo();
+            return foo.InitAsync();
         }
     }
 
@@ -23,8 +30,10 @@ namespace FactoryAsynchronous
     {
         static async Task Main(string[] args)
         {
-            var foo = new Foo();
-            await foo.InitAsync();
+            //var foo = new Foo();
+            //await foo.InitAsync();
+
+            var x = await Foo.CreateAsync();
         }
     }
 }
