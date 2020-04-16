@@ -7,16 +7,15 @@ using static System.Console;
 
 namespace Prototype
 {
-    public class Person
+    public interface IPrototype<T>
+    {
+        T DeepCopy();
+    }
+
+    public class Person : IPrototype<Person>
     {
         public string[] Names;
         public Address Address;
-
-        public Person(Person other)
-        {
-            Names = other.Names.ToArray();
-            Address = new Address(other.Address);
-        }
 
         public Person(string[] names, Address address)
         {
@@ -27,6 +26,11 @@ namespace Prototype
             Address = address;
         }
 
+        public Person DeepCopy()
+        {
+            return new Person(Names.ToArray(), Address.DeepCopy());
+        }
+
         public override string ToString()
         {
             return $"{nameof(Names)}: {string.Join(" ", Names)}, {nameof(Address)}: {Address}";
@@ -34,16 +38,10 @@ namespace Prototype
     }
 
 
-    public class Address
+    public class Address : IPrototype<Address>
     {
         public string StreetName;
         public int HouseNumber;
-
-        public Address(Address other)
-        {
-            StreetName = other.StreetName;
-            HouseNumber = other.HouseNumber;
-        }
 
         public Address(string streetName, int houseNumber)
         {
@@ -51,6 +49,11 @@ namespace Prototype
 
             StreetName = streetName;
             HouseNumber = houseNumber;
+        }
+
+        public Address DeepCopy()
+        {
+            return new Address(StreetName, HouseNumber);
         }
 
         public override string ToString()
@@ -66,7 +69,7 @@ namespace Prototype
             var john = new Person(new[] { "John", "Smith" },
                 new Address("London Road", 123));
 
-            var jane = new Person(john);
+            var jane = john.DeepCopy();
             jane.Names[0] = "Jane";
             jane.Address.HouseNumber = 321;
 
