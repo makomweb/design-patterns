@@ -7,10 +7,16 @@ using static System.Console;
 
 namespace Prototype
 {
-    public class Person : ICloneable
+    public class Person
     {
         public string[] Names;
         public Address Address;
+
+        public Person(Person other)
+        {
+            Names = other.Names.ToArray();
+            Address = new Address(other.Address);
+        }
 
         public Person(string[] names, Address address)
         {
@@ -21,11 +27,6 @@ namespace Prototype
             Address = address;
         }
 
-        public object Clone()
-        {
-            return new Person(Names.ToArray(), (Address)Address.Clone());
-        }
-
         public override string ToString()
         {
             return $"{nameof(Names)}: {string.Join(" ", Names)}, {nameof(Address)}: {Address}";
@@ -33,10 +34,16 @@ namespace Prototype
     }
 
 
-    public class Address : ICloneable
+    public class Address
     {
         public string StreetName;
         public int HouseNumber;
+
+        public Address(Address other)
+        {
+            StreetName = other.StreetName;
+            HouseNumber = other.HouseNumber;
+        }
 
         public Address(string streetName, int houseNumber)
         {
@@ -44,11 +51,6 @@ namespace Prototype
 
             StreetName = streetName;
             HouseNumber = houseNumber;
-        }
-
-        public object Clone()
-        {
-            return new Address(StreetName, HouseNumber);
         }
 
         public override string ToString()
@@ -64,9 +66,9 @@ namespace Prototype
             var john = new Person(new[] { "John", "Smith" },
                 new Address("London Road", 123));
 
-            var jane = (Person)john.Clone();
+            var jane = new Person(john);
             jane.Names[0] = "Jane";
-            jane.Address = new Address("Park Drive", 321);
+            jane.Address.HouseNumber = 321;
 
             WriteLine(john);
             WriteLine(jane);
