@@ -22,15 +22,13 @@ namespace Singleton
         private static readonly Lazy<SingletonDatabase> _instance =
             new Lazy<SingletonDatabase>(() => new SingletonDatabase());
 
-        private static int _instanceCount = 0;
-
-        public static int Count => _instanceCount;
+        public static int Count { get; set; } = 0;
 
         public static SingletonDatabase GetInstance() { return _instance.Value; }
 
         private SingletonDatabase()
         {
-            _instanceCount++;
+            Count++;
 
             WriteLine("Initializing database.");
 
