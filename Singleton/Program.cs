@@ -46,8 +46,10 @@ namespace Singleton
         static void Main(string[] args)
         {
             var db = SingletonDatabase.GetInstance();
+            var city = "Tokyo";
+            var population= db.GetPopulation(city);
 
-
+            WriteLine($"{city} has population {population}");
         }
     }
 }
