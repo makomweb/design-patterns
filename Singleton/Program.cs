@@ -18,9 +18,10 @@ namespace Singleton
     {
         private readonly Dictionary<string, int> capitals;
 
-        private static readonly SingletonDatabase _instance = new SingletonDatabase();
+        private static readonly Lazy<SingletonDatabase> _instance =
+            new Lazy<SingletonDatabase>(() => new SingletonDatabase());
 
-        public static SingletonDatabase GetInstance() { return _instance; }
+        public static SingletonDatabase GetInstance() { return _instance.Value; }
 
         private SingletonDatabase()
         {
