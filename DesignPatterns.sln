@@ -38,6 +38,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype", "Prototype\Prot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrototypeExercise", "PrototypeExercise\PrototypeExercise.csproj", "{D66DA69B-B9E4-4863-BE1D-829BB1A91138}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singleton", "Singleton\Singleton.csproj", "{9A176381-E96B-418B-9F7A-1846EAC999EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -104,6 +106,10 @@ Global
 		{D66DA69B-B9E4-4863-BE1D-829BB1A91138}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D66DA69B-B9E4-4863-BE1D-829BB1A91138}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D66DA69B-B9E4-4863-BE1D-829BB1A91138}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A176381-E96B-418B-9F7A-1846EAC999EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A176381-E96B-418B-9F7A-1846EAC999EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A176381-E96B-418B-9F7A-1846EAC999EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A176381-E96B-418B-9F7A-1846EAC999EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

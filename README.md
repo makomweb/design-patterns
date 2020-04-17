@@ -9,3 +9,4 @@
 ## Builder pattern
 ## Factory pattern
 ## Prototype pattern
+## Singleton pattern
