@@ -1,4 +1,5 @@
 using MoreLinq;
+using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -27,7 +28,9 @@ namespace Singleton
         {
             WriteLine("Initializing database.");
 
-            capitals = File.ReadAllLines("capitals.txt")
+            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"capitals.txt");
+
+            capitals = File.ReadAllLines(path)
                 .Batch(2)
                 .ToDictionary(
                 list => list.ElementAt(0).Trim(),
@@ -38,6 +41,18 @@ namespace Singleton
         public int GetPopulation(string name)
         {
             return capitals[name];
+        }
+    }
+
+    public class SingletonTests
+    {
+        [Test]
+        public void IsSingletonTest()
+        {
+            var db = SingletonDatabase.GetInstance();
+            var db2 = SingletonDatabase.GetInstance();
+
+            Assert.That(db, Is.SameAs(db2));
         }
     }
 
