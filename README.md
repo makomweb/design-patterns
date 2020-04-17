@@ -9,4 +9,4 @@
 ## Builder pattern
 ## Factory pattern
 ## Prototype pattern
-## Singleton pattern
+## Singleton and MonoState pattern
