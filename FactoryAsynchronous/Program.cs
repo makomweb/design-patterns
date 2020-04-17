@@ -8,7 +8,7 @@ namespace FactoryAsynchronous
 {
     public class Foo
     {
-        public async Task<Foo> InitAsync()
+        private async Task<Foo> InitAsync()
         {
             await Task.Delay(100);
             return this;
@@ -28,12 +28,14 @@ namespace FactoryAsynchronous
 
     class Program
     {
-        static async Task Main(string[] args)
+        public static void Main(string[] args)
         {
             //var foo = new Foo();
             //await foo.InitAsync();
 
-            var x = await Foo.CreateAsync();
+            Foo x = Foo.CreateAsync().Result;
+
+            Console.WriteLine("Finished.");
         }
     }
 }
