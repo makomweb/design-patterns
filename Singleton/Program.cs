@@ -62,6 +62,40 @@ namespace Singleton
         }
     }
 
+    public class ConfigurableRecordFinder
+    {
+        private IDatabase _database;
+        
+        public ConfigurableRecordFinder(IDatabase database)
+        {
+            _database = database ?? throw new ArgumentNullException(paramName: nameof(database));
+        }
+
+        public int GetTotalPopulation(IEnumerable<string> names)
+        {
+            int result = 0;
+            foreach (var name in names)
+            {
+                result += _database.GetPopulation(name);
+
+            }
+            return result;
+        }
+    }
+
+    public class DummyDatabase : IDatabase
+    {
+        public int GetPopulation(string name)
+        {
+            return new Dictionary<string, int>
+            {
+                ["alpha"] = 1,
+                ["beta"] = 2,
+                ["gamma"] = 3
+            }[name];
+        }
+    }
+
     public class SingletonTests
     {
         [Test]
@@ -81,6 +115,15 @@ namespace Singleton
             var names = new[] { "Seoul", "Mexico City" };
             int tp = rf.GetTotalPopulation(names);
             Assert.AreEqual(17500000 + 17400000, tp);
+        }
+
+        [Test]
+        public void ConfigurablePopulationTest()
+        {
+            var rf = new ConfigurableRecordFinder(new DummyDatabase());
+            var names = new[] { "alpha", "gamma" };
+            int tp = rf.GetTotalPopulation(names);
+            Assert.AreEqual(4, tp);
         }
     }
 
