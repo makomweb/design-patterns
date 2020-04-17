@@ -16,9 +16,13 @@ namespace Singleton
 
     public class SingletonDatabase : IDatabase
     {
-        private Dictionary<string, int> capitals;
+        private readonly Dictionary<string, int> capitals;
 
-        public SingletonDatabase()
+        private static readonly SingletonDatabase _instance = new SingletonDatabase();
+
+        public static SingletonDatabase GetInstance() { return _instance; }
+
+        private SingletonDatabase()
         {
             WriteLine("Initializing database.");
 
@@ -40,7 +44,7 @@ namespace Singleton
     {
         static void Main(string[] args)
         {
-            var db = new SingletonDatabase();
+            var db = SingletonDatabase.GetInstance();
 
 
         }
