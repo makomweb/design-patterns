@@ -22,10 +22,16 @@ namespace Singleton
         private static readonly Lazy<SingletonDatabase> _instance =
             new Lazy<SingletonDatabase>(() => new SingletonDatabase());
 
+        private static int _instanceCount = 0;
+
+        public static int Count => _instanceCount;
+
         public static SingletonDatabase GetInstance() { return _instance.Value; }
 
         private SingletonDatabase()
         {
+            _instanceCount++;
+
             WriteLine("Initializing database.");
 
             var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"capitals.txt");
@@ -53,6 +59,7 @@ namespace Singleton
             var db2 = SingletonDatabase.GetInstance();
 
             Assert.That(db, Is.SameAs(db2));
+            Assert.AreEqual(1, SingletonDatabase.Count);
         }
     }
 
