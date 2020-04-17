@@ -50,6 +50,20 @@ namespace Singleton
         }
     }
 
+    public class SingletonRecordFinder
+    {
+        public int GetTotalPopulation(IEnumerable<string> names)
+        {
+            int result = 0;
+            foreach (var name in names)
+            {
+                result += SingletonDatabase.GetInstance().GetPopulation(name);
+
+            }
+            return result;
+        }
+    }
+
     public class SingletonTests
     {
         [Test]
@@ -60,6 +74,15 @@ namespace Singleton
 
             Assert.That(db, Is.SameAs(db2));
             Assert.AreEqual(1, SingletonDatabase.Count);
+        }
+
+        [Test]
+        public void SingletonTotalPopulationTest()
+        {
+            var rf = new SingletonRecordFinder();
+            var names = new[] { "Seoul", "Mexico City" };
+            int tp = rf.GetTotalPopulation(names);
+            Assert.AreEqual(17500000 + 17400000, tp);
         }
     }
 
