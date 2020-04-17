@@ -1,3 +1,4 @@
+using Autofac;
 using MoreLinq;
 using NUnit.Framework;
 using System;
@@ -96,6 +97,30 @@ namespace Singleton
         }
     }
 
+    public class OrdinaryDatabase : IDatabase
+    {
+        private readonly Dictionary<string, int> _capitals;
+
+        private OrdinaryDatabase()
+        {
+            WriteLine("Initializing database.");
+
+            var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"capitals.txt");
+
+            _capitals = File.ReadAllLines(path)
+                .Batch(2)
+                .ToDictionary(
+                list => list.ElementAt(0).Trim(),
+                list => int.Parse(list.ElementAt(1))
+                );
+        }
+
+        public int GetPopulation(string name)
+        {
+            return _capitals[name];
+        }
+    }
+
     public class SingletonTests
     {
         [Test]
@@ -124,6 +149,22 @@ namespace Singleton
             var names = new[] { "alpha", "gamma" };
             int tp = rf.GetTotalPopulation(names);
             Assert.AreEqual(4, tp);
+        }
+
+        [Test]
+        public void DIPopulationTest()
+        {
+            var cb = new ContainerBuilder();
+            cb.RegisterType<OrdinaryDatabase>()
+                .As<IDatabase>()
+                .SingleInstance();
+            cb.RegisterType<ConfigurableRecordFinder>();
+
+            using (var c = cb.Build())
+            {
+                var rf = c.Resolve<ConfigurableRecordFinder>();
+
+            }
         }
     }
 
