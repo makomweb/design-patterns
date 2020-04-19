@@ -6,7 +6,11 @@
 
 ## SOLID
 
+# Creational patterns
 ## Builder pattern
 ## Factory pattern
 ## Prototype pattern
 ## Singleton and MonoState pattern
+
+# Structural patterns
+## Adapter pattern
