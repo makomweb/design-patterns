@@ -60,7 +60,35 @@ namespace GenericValueAdapter
         }
     }
 
-    public class Vector2i : Vector<int, Dimensions.Two>
+    public class VectorOfInt<D> : Vector<int, D>
+        where D: IInteger, new()
+    {
+        public VectorOfInt()
+        {
+
+        }
+
+        public VectorOfInt(params int[] values) : base(values)
+        {
+
+        }
+
+        public static VectorOfInt<D> operator +
+            (VectorOfInt<D> leftHandSide, VectorOfInt<D> rightHandSide)
+        {
+            var result = new VectorOfInt<D>();
+            var dim = new D().Value;
+
+            for (int i = 0; i < dim; i++)
+            {
+                result[i] = leftHandSide[i] + rightHandSide[i];
+            }
+
+            return result;
+        }
+    }
+
+    public class Vector2i : VectorOfInt<Dimensions.Two>
     {
         public Vector2i()
         {
