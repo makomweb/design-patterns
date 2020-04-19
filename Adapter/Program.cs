@@ -18,6 +18,22 @@ namespace Adapter
             Y = y;
         }
 
+        public override bool Equals(object obj)
+        {
+            var point = obj as Point;
+            return point != null &&
+                   X == point.X &&
+                   Y == point.Y;
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = 1861411795;
+            hashCode = hashCode * -1521134295 + X.GetHashCode();
+            hashCode = hashCode * -1521134295 + Y.GetHashCode();
+            return hashCode;
+        }
+
         public override string ToString()
         {
             //return $"{nameof(X)}: {X}, {nameof(Y)}: {Y}";
@@ -41,6 +57,22 @@ namespace Adapter
 
             Start = start;
             End = end;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var line = obj as Line;
+            return line != null &&
+                   EqualityComparer<Point>.Default.Equals(Start, line.Start) &&
+                   EqualityComparer<Point>.Default.Equals(End, line.End);
+        }
+
+        public override int GetHashCode()
+        {
+            var hashCode = -1676728671;
+            hashCode = hashCode * -1521134295 + EqualityComparer<Point>.Default.GetHashCode(Start);
+            hashCode = hashCode * -1521134295 + EqualityComparer<Point>.Default.GetHashCode(End);
+            return hashCode;
         }
 
         public override string ToString()
