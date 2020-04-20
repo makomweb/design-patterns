@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Autofac;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -68,12 +69,26 @@ namespace Bridge
         static void Main(string[] args)
         {
             //var r = new RasterRenderer();
-            var r = new VectorRenderer();
-            var c = new Circle(r, 5);
+            //var r = new VectorRenderer();
+            //var c = new Circle(r, 5);
 
-            c.Draw();
-            c.Resize(10);
-            c.Draw();
+            //c.Draw();
+            //c.Resize(10);
+            //c.Draw();
+
+            var cb = new ContainerBuilder();
+            cb.RegisterType<RasterRenderer>().As<IRenderer>().SingleInstance();
+
+            cb.Register((c, p) => new Circle(c.Resolve<IRenderer>(), p.Positional<float>(0)));
+
+            using (var c = cb.Build())
+            {
+                var circle = c.Resolve<Circle>(new PositionalParameter(0, 5.0f));
+
+                circle.Draw();
+                circle.Resize(10);
+                circle.Draw();
+            }
         }
     }
 }
