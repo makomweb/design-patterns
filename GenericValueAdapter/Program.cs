@@ -47,6 +47,11 @@ namespace GenericValueAdapter
             }
         }
 
+        public static Vector<T, D> Create(params T[] values)
+        {
+            return new Vector<T, D>(values);
+        }
+
         public T this[int index]
         {
             get => _data[index];
@@ -108,6 +113,10 @@ namespace GenericValueAdapter
 
     public class Vector3f : VectorOfFloat<Dimensions.Three>
     {
+        public override string ToString()
+        {
+            return $"{string.Join(",", _data)}";
+        }
     }
 
     class Program
@@ -121,6 +130,9 @@ namespace GenericValueAdapter
 
             var result = v + vv;
 
+            var u = Vector3f.Create(3.5f, 2.2f, 1);
+            u.ToString(); // error!
+            u = u + u; // error!
         }
     }
 }
