@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Autofac.Features.Metadata;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,33 +33,40 @@ namespace AdapterDependencyInjection
     public class Button
     {
         private readonly ICommand _command;
+        private string _name;
 
-        public Button(ICommand command)
+        public Button(ICommand command, string name)
         {
             if (command == null) throw new ArgumentNullException(paramName: nameof(command));
 
             _command = command;
+            _name = name;
         }
 
         public void Click()
         {
             _command.Execute();
         }
+
+        public void PrintMe()
+        {
+            WriteLine($"I am a button called {_name}.");
+        }
     }
 
     public class Editor
     {
-        private IEnumerable<Button> _buttons;
+        public IEnumerable<Button> Buttons { get; private set; }
 
         public Editor(IEnumerable<Button> buttons)
         {
             if (buttons == null) throw new ArgumentNullException(paramName: nameof(buttons));
-            _buttons = buttons;
+            Buttons = buttons;
         }
 
         public void ClickAll()
         {
-            foreach (var b in _buttons)
+            foreach (var b in Buttons)
             {
                 b.Click();
             }
@@ -70,16 +78,27 @@ namespace AdapterDependencyInjection
         static void Main(string[] args)
         {
             var b = new ContainerBuilder();
-            b.RegisterType<SaveCommand>().As<ICommand>();
-            b.RegisterType<OpenCommand>().As<ICommand>();
+            b.RegisterType<SaveCommand>().As<ICommand>()
+                .WithMetadata("Name", "Save");
+            b.RegisterType<OpenCommand>().As<ICommand>()
+                .WithMetadata("Name", "Open");
+
             //b.RegisterType<Button>();
-            b.RegisterAdapter<ICommand, Button>(cmd => new Button(cmd));
+            //b.RegisterAdapter<ICommand, Button>(cmd => new Button(cmd));
+            b.RegisterAdapter<Meta<ICommand>, Button>(cmd =>
+                new Button(cmd.Value, (string)cmd.Metadata["Name"]));
+
             b.RegisterType<Editor>();
 
             using (var c = b.Build())
             {
                 var e = c.Resolve<Editor>();
-                e.ClickAll();
+                //e.ClickAll();
+
+                foreach (var btn in e.Buttons)
+                {
+                    btn.PrintMe();
+                }
             }
         }
     }
