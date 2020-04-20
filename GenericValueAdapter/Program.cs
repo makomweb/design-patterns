@@ -25,7 +25,8 @@ namespace GenericValueAdapter
 
     }
 
-    public class Vector<T, D> where D : IInteger, new()
+    public class Vector<TSelf, T, D> where D : IInteger, new()
+        where TSelf: Vector<TSelf, T,D>, new()
     {
         protected T[] _data;
 
@@ -47,9 +48,20 @@ namespace GenericValueAdapter
             }
         }
 
-        public static Vector<T, D> Create(params T[] values)
+        public static TSelf Create(params T[] values)
         {
-            return new Vector<T, D>(values);
+            var obj = new TSelf();
+            var requiredSize = new D().Value;
+            obj._data = new T[requiredSize];
+
+            var providedSize = values.Length;
+
+            for (int i = 0; i < Math.Min(requiredSize, providedSize); ++i)
+            {
+                obj._data[i] = values[i];
+            }
+
+            return obj;
         }
 
         public T this[int index]
@@ -65,7 +77,7 @@ namespace GenericValueAdapter
         }
     }
 
-    public class VectorOfInt<D> : Vector<int, D>
+    public class VectorOfInt<D> : Vector<VectorOfInt<D>, int, D>
         where D: IInteger, new()
     {
         public VectorOfInt()
@@ -93,8 +105,9 @@ namespace GenericValueAdapter
         }
     }
 
-    public class VectorOfFloat<D> : Vector<float, D>
+    public class VectorOfFloat<TSelf, D> : Vector<TSelf, float, D>
         where D : IInteger, new()
+        where TSelf : Vector<TSelf, float, D>, new()
     {
     }
 
@@ -111,7 +124,7 @@ namespace GenericValueAdapter
         }
     }
 
-    public class Vector3f : VectorOfFloat<Dimensions.Three>
+    public class Vector3f : VectorOfFloat<Vector3f, Dimensions.Three>
     {
         public override string ToString()
         {
@@ -130,7 +143,7 @@ namespace GenericValueAdapter
 
             var result = v + vv;
 
-            var u = Vector3f.Create(3.5f, 2.2f, 1);
+            Vector3f u = Vector3f.Create(3.5f, 2.2f, 1);
             u.ToString(); // error!
             u = u + u; // error!
         }
