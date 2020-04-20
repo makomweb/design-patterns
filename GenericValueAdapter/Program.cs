@@ -145,7 +145,7 @@ namespace GenericValueAdapter
 
             Vector3f u = Vector3f.Create(3.5f, 2.2f, 1);
             u.ToString(); // error!
-            u = u + u; // error!
+            //u = u + u; // error!
         }
     }
 }
