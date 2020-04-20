@@ -72,7 +72,8 @@ namespace AdapterDependencyInjection
             var b = new ContainerBuilder();
             b.RegisterType<SaveCommand>().As<ICommand>();
             b.RegisterType<OpenCommand>().As<ICommand>();
-            b.RegisterType<Button>();
+            //b.RegisterType<Button>();
+            b.RegisterAdapter<ICommand, Button>(cmd => new Button(cmd));
             b.RegisterType<Editor>();
 
             using (var c = b.Build())
