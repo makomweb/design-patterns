@@ -88,6 +88,11 @@ namespace GenericValueAdapter
         }
     }
 
+    public class VectorOfFloat<D> : Vector<float, D>
+        where D : IInteger, new()
+    {
+    }
+
     public class Vector2i : VectorOfInt<Dimensions.Two>
     {
         public Vector2i()
@@ -99,6 +104,10 @@ namespace GenericValueAdapter
         {
 
         }
+    }
+
+    public class Vector3f : VectorOfFloat<Dimensions.Three>
+    {
     }
 
     class Program
