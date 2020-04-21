@@ -60,6 +60,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Composite", "Composite\Comp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeNeuralNetworks", "CompositeNeuralNetworks\CompositeNeuralNetworks.csproj", "{A1A546B3-B454-433F-B748-74CE2665208E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CompositeSpecification", "CompositeSpecification\CompositeSpecification.csproj", "{F16C517A-2F85-4EF0-B35A-262C3B793903}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -170,6 +172,10 @@ Global
 		{A1A546B3-B454-433F-B748-74CE2665208E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A1A546B3-B454-433F-B748-74CE2665208E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A1A546B3-B454-433F-B748-74CE2665208E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F16C517A-2F85-4EF0-B35A-262C3B793903}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F16C517A-2F85-4EF0-B35A-262C3B793903}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F16C517A-2F85-4EF0-B35A-262C3B793903}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F16C517A-2F85-4EF0-B35A-262C3B793903}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
