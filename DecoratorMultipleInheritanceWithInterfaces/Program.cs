@@ -43,8 +43,18 @@ namespace DecoratorMultipleInheritanceWithInterfaces
     {
         public Bird _bird = new Bird();
         public Lizard _lizard = new Lizard();
+        private int _weight;
 
-        public int Weight { get; set; }
+        public int Weight
+        {
+            get => _weight;
+            set
+            {
+                _weight = value;
+                _bird.Weight = value;
+                _lizard.Weight = value;
+            }
+        }
 
         public void Crawl()
         {
