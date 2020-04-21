@@ -8,12 +8,12 @@ namespace CompositeSpecification
 {
     public class Product
     {
-
+        public Color Color { get; set; }
     }
 
     public class Color
     {
-
+        public string Value { get; set; }
     }
 
     public abstract class ISpecification<T>
