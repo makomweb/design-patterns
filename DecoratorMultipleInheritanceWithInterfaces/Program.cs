@@ -10,26 +10,32 @@ namespace DecoratorMultipleInheritanceWithInterfaces
     public interface IBird
     {
         void Fly();
+        int Weight { get; set; }
     }
 
     public class Bird : IBird
     {
+        public int Weight { get; set; }
+
         public void Fly()
         {
-            WriteLine("Soaring in the sky");
+            WriteLine($"Soaring in the sky with weight {Weight}");
         }
     }
 
     public interface ILizard
     {
         void Crawl();
+        int Weight { get; set; }
     }
 
     public class Lizard : ILizard
     {
+        public int Weight { get; set; }
+
         public void Crawl()
         {
-            WriteLine("Crawling in the dirt");
+            WriteLine($"Crawling in the dirt with weight {Weight}");
         }
     }
 
@@ -37,6 +43,8 @@ namespace DecoratorMultipleInheritanceWithInterfaces
     {
         public Bird _bird = new Bird();
         public Lizard _lizard = new Lizard();
+
+        public int Weight { get; set; }
 
         public void Crawl()
         {
@@ -53,6 +61,10 @@ namespace DecoratorMultipleInheritanceWithInterfaces
     {
         static void Main(string[] args)
         {
+            var d = new Dragon();
+            d.Weight = 123;
+            d.Fly();
+            d.Crawl();
         }
     }
 }
