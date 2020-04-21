@@ -38,19 +38,15 @@ namespace CompositeSpecification
     }
 
     // combinator
-    internal class AndSpecification<T> : ISpecification<T>
+    internal class AndSpecification<T> : CompositeSpecification<T>
     {
-        private ISpecification<T> first, second;
-
-        public AndSpecification(ISpecification<T> first, ISpecification<T> second)
+        public AndSpecification(params ISpecification<T>[] specs) : base(specs)
         {
-            this.first = first;
-            this.second = second;
         }
 
         public override bool IsSatisfied(T p)
         {
-            return first.IsSatisfied(p) && second.IsSatisfied(p);
+            return _specs.All(o => o.IsSatisfied(p));
         }
     }
 

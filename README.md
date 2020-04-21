@@ -16,3 +16,5 @@
 ## Adapter pattern
 ## Bridge pattern
 ![image](./Images/summary-bridge.png)
+## Composite pattern
+![image].()
