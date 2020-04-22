@@ -1,12 +1,10 @@
-using Autofac;
+﻿using Autofac;
 using MoreLinq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using static System.Console;
 
 namespace Singleton
@@ -18,7 +16,7 @@ namespace Singleton
 
     public class SingletonDatabase : IDatabase
     {
-        private readonly Dictionary<string, int> capitals;
+        private readonly Dictionary<string, int> _capitals;
 
         private static readonly Lazy<SingletonDatabase> _instance =
             new Lazy<SingletonDatabase>(() => new SingletonDatabase());
@@ -35,7 +33,7 @@ namespace Singleton
 
             var path = Path.Combine(TestContext.CurrentContext.TestDirectory, @"capitals.txt");
 
-            capitals = File.ReadAllLines(path)
+            _capitals = File.ReadAllLines(path)
                 .Batch(2)
                 .ToDictionary(
                 list => list.ElementAt(0).Trim(),
@@ -45,7 +43,7 @@ namespace Singleton
 
         public int GetPopulation(string name)
         {
-            return capitals[name];
+            return _capitals[name];
         }
     }
 
@@ -66,13 +64,13 @@ namespace Singleton
     public class ConfigurableRecordFinder
     {
         private IDatabase _database;
-        
+
         public ConfigurableRecordFinder(IDatabase database)
         {
             _database = database ?? throw new ArgumentNullException(paramName: nameof(database));
         }
 
-        public int GetTotalPopulation(IEnumerable<string> names)
+        public int GetTotalPopulation(params string[] names)
         {
             int result = 0;
             foreach (var name in names)
@@ -101,7 +99,7 @@ namespace Singleton
     {
         private readonly Dictionary<string, int> _capitals;
 
-        private OrdinaryDatabase()
+        public OrdinaryDatabase()
         {
             WriteLine("Initializing database.");
 
@@ -164,19 +162,28 @@ namespace Singleton
             {
                 var rf = c.Resolve<ConfigurableRecordFinder>();
 
+                var population = rf.GetTotalPopulation("New York");
+
+                Assert.AreEqual(17800000, population);
             }
         }
-    }
 
-    class Program
-    {
-        static void Main(string[] args)
+        [Test]
+        public void TestewYorkPopulation()
         {
             var db = SingletonDatabase.GetInstance();
-            var city = "Tokyo";
-            var population= db.GetPopulation(city);
+            var population = db.GetPopulation("New York");
 
-            WriteLine($"{city} has population {population}");
+            Assert.AreEqual(17800000, population);
+        }
+
+        [Test]
+        public void TestTokyoPopulation()
+        {
+            var db = SingletonDatabase.GetInstance();
+            var population = db.GetPopulation("﻿Tokyo");
+
+            Assert.AreEqual(33200000, population);
         }
     }
 }

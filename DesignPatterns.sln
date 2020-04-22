@@ -38,11 +38,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Prototype", "Prototype\Prot
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrototypeExercise", "PrototypeExercise\PrototypeExercise.csproj", "{D66DA69B-B9E4-4863-BE1D-829BB1A91138}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singleton", "Singleton\Singleton.csproj", "{9A176381-E96B-418B-9F7A-1846EAC999EC}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoState", "MonoState\MonoState.csproj", "{175A07B2-6DA7-4809-8597-51D94CAE6A13}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingletonExercise", "SingletonExercise\SingletonExercise.csproj", "{3090FD3A-1DDF-478D-A847-222A5D26370B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Adapter", "Adapter\Adapter.csproj", "{73D29BD4-C79C-4266-BF96-5057D388CF97}"
 EndProject
@@ -74,7 +70,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorCreature", "Decora
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicDecoratorComposition", "DynamicDecoratorComposition\DynamicDecoratorComposition.csproj", "{C46A68D6-6560-4C39-9E6D-79E9C382F446}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorCreatureNetCore", "DecoratorCreatureNetCore\DecoratorCreatureNetCore.csproj", "{09E64345-DD14-46C3-9325-EDA49BA12964}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecoratorCreatureNetCore", "DecoratorCreatureNetCore\DecoratorCreatureNetCore.csproj", "{09E64345-DD14-46C3-9325-EDA49BA12964}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singleton", "Singleton\Singleton.csproj", "{898D4479-ADC5-46B2-A90E-D64C63D138A6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -142,18 +140,10 @@ Global
 		{D66DA69B-B9E4-4863-BE1D-829BB1A91138}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D66DA69B-B9E4-4863-BE1D-829BB1A91138}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D66DA69B-B9E4-4863-BE1D-829BB1A91138}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9A176381-E96B-418B-9F7A-1846EAC999EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9A176381-E96B-418B-9F7A-1846EAC999EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9A176381-E96B-418B-9F7A-1846EAC999EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9A176381-E96B-418B-9F7A-1846EAC999EC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{175A07B2-6DA7-4809-8597-51D94CAE6A13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{175A07B2-6DA7-4809-8597-51D94CAE6A13}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{175A07B2-6DA7-4809-8597-51D94CAE6A13}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{175A07B2-6DA7-4809-8597-51D94CAE6A13}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3090FD3A-1DDF-478D-A847-222A5D26370B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3090FD3A-1DDF-478D-A847-222A5D26370B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3090FD3A-1DDF-478D-A847-222A5D26370B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3090FD3A-1DDF-478D-A847-222A5D26370B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{73D29BD4-C79C-4266-BF96-5057D388CF97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{73D29BD4-C79C-4266-BF96-5057D388CF97}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{73D29BD4-C79C-4266-BF96-5057D388CF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -218,6 +208,10 @@ Global
 		{09E64345-DD14-46C3-9325-EDA49BA12964}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{09E64345-DD14-46C3-9325-EDA49BA12964}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{09E64345-DD14-46C3-9325-EDA49BA12964}.Release|Any CPU.Build.0 = Release|Any CPU
+		{898D4479-ADC5-46B2-A90E-D64C63D138A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{898D4479-ADC5-46B2-A90E-D64C63D138A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{898D4479-ADC5-46B2-A90E-D64C63D138A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{898D4479-ADC5-46B2-A90E-D64C63D138A6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
