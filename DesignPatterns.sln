@@ -80,7 +80,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecoratorDependenyInjection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecoratorExercise", "DecoratorExercise\DecoratorExercise.csproj", "{42BE997D-85A4-49AC-9F16-C008F1D7AEB3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facade", "Facade\Facade.csproj", "{3E419150-31F3-41A9-B91C-E1987DD2656F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Facade", "Facade\Facade.csproj", "{3E419150-31F3-41A9-B91C-E1987DD2656F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyweightUserNames", "FlyweightUserNames\FlyweightUserNames.csproj", "{1ABB4315-4B2C-4264-8D90-18848394AED0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyweightUserNames2", "FlyweightUserNames2\FlyweightUserNames2.csproj", "{4D0EDF2C-3871-4FA9-96C2-35DEFF624D00}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyweightUserNames3", "FlyweightUserNames3\FlyweightUserNames3.csproj", "{DB130FCD-04DC-4416-ABDF-B6DBFE899236}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FlyweightTextFormatting", "FlyweightTextFormatting\FlyweightTextFormatting.csproj", "{659B5555-8686-4691-911A-CAFB6CC50CC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -236,6 +244,22 @@ Global
 		{3E419150-31F3-41A9-B91C-E1987DD2656F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E419150-31F3-41A9-B91C-E1987DD2656F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E419150-31F3-41A9-B91C-E1987DD2656F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1ABB4315-4B2C-4264-8D90-18848394AED0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1ABB4315-4B2C-4264-8D90-18848394AED0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1ABB4315-4B2C-4264-8D90-18848394AED0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1ABB4315-4B2C-4264-8D90-18848394AED0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D0EDF2C-3871-4FA9-96C2-35DEFF624D00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D0EDF2C-3871-4FA9-96C2-35DEFF624D00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D0EDF2C-3871-4FA9-96C2-35DEFF624D00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D0EDF2C-3871-4FA9-96C2-35DEFF624D00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB130FCD-04DC-4416-ABDF-B6DBFE899236}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB130FCD-04DC-4416-ABDF-B6DBFE899236}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB130FCD-04DC-4416-ABDF-B6DBFE899236}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB130FCD-04DC-4416-ABDF-B6DBFE899236}.Release|Any CPU.Build.0 = Release|Any CPU
+		{659B5555-8686-4691-911A-CAFB6CC50CC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{659B5555-8686-4691-911A-CAFB6CC50CC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{659B5555-8686-4691-911A-CAFB6CC50CC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{659B5555-8686-4691-911A-CAFB6CC50CC0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
