@@ -78,9 +78,10 @@ namespace BuilderAdvanced
             return this;
         }
 
-        public PersonAddressBuilder In(string city)
+        public PersonAddressBuilder In(string city, string postCode)
         {
             _person.City = city;
+            _person.PostCode = postCode;
             return this;
         }
     }
@@ -94,7 +95,7 @@ namespace BuilderAdvanced
                 .Works.At("Fabrikam")
                 .At("Engineer")
                 .Earning(50000)
-                .Lives.In("London")
+                .Lives.In("London", "22345")
                 .Build();
 
 
