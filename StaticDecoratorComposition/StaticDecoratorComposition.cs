@@ -115,6 +115,27 @@ namespace StaticDecoratorComposition
         }
     }
 
+    public class TransparentShape<T> : Shape where T : Shape, new()
+    {
+        private float _transparency;
+        private T _shape = new T();
+
+        public TransparentShape() : this(0.0f)
+        {
+
+        }
+
+        public TransparentShape(float transparency)
+        {
+            _transparency = transparency;
+        }
+
+        public override string AsString()
+        {
+            return $"{_shape.AsString()} with {_transparency * 100}% transparency";
+        }
+    }
+
     public class StaticDecoratorComposition
     {
         [Test]
@@ -122,6 +143,14 @@ namespace StaticDecoratorComposition
         {
             var redSquare = new ColoredShape<Square>("red");
             var s = redSquare.AsString();
+            Assert.False(string.IsNullOrEmpty(s));
+        }
+
+        [Test]
+        public void RunTransparencyTest()
+        {
+            var circle = new TransparentShape<ColoredShape<Circle>>(0.4f);
+            var s = circle.AsString();
             Assert.False(string.IsNullOrEmpty(s));
         }
 
