@@ -68,15 +68,17 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorMultipleInheritanc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorCreature", "DecoratorCreature\DecoratorCreature.csproj", "{D34D8B33-FDC8-46CB-9333-2E744977032E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicDecoratorComposition", "DynamicDecoratorComposition\DynamicDecoratorComposition.csproj", "{C46A68D6-6560-4C39-9E6D-79E9C382F446}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorDynamicComposition", "DynamicDecoratorComposition\DecoratorDynamicComposition.csproj", "{C46A68D6-6560-4C39-9E6D-79E9C382F446}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DecoratorCreatureNetCore", "DecoratorCreatureNetCore\DecoratorCreatureNetCore.csproj", "{09E64345-DD14-46C3-9325-EDA49BA12964}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Singleton", "Singleton\Singleton.csproj", "{898D4479-ADC5-46B2-A90E-D64C63D138A6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StaticDecoratorComposition", "StaticDecoratorComposition\StaticDecoratorComposition.csproj", "{08DCEE29-8631-4640-861E-BEDD2A27A0EE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorStaticComposition", "StaticDecoratorComposition\DecoratorStaticComposition.csproj", "{08DCEE29-8631-4640-861E-BEDD2A27A0EE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorDependenyInjection", "DecoratorDependenyInjection\DecoratorDependenyInjection.csproj", "{E6A517FD-7B01-41ED-9439-644B609BC85E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorExercise", "DecoratorExercise\DecoratorExercise.csproj", "{42BE997D-85A4-49AC-9F16-C008F1D7AEB3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -224,6 +226,10 @@ Global
 		{E6A517FD-7B01-41ED-9439-644B609BC85E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E6A517FD-7B01-41ED-9439-644B609BC85E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E6A517FD-7B01-41ED-9439-644B609BC85E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42BE997D-85A4-49AC-9F16-C008F1D7AEB3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42BE997D-85A4-49AC-9F16-C008F1D7AEB3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42BE997D-85A4-49AC-9F16-C008F1D7AEB3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42BE997D-85A4-49AC-9F16-C008F1D7AEB3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
