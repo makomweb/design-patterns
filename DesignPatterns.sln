@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOLID-SRP", "SOLID-SRP\SOLID-SRP.csproj", "{508E8B80-4A90-473D-B436-DCBB7C831639}"
 EndProject
@@ -73,6 +73,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorCreature", "DecoratorCreature\DecoratorCreature.csproj", "{D34D8B33-FDC8-46CB-9333-2E744977032E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicDecoratorComposition", "DynamicDecoratorComposition\DynamicDecoratorComposition.csproj", "{C46A68D6-6560-4C39-9E6D-79E9C382F446}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DecoratorCreatureNetCore", "DecoratorCreatureNetCore\DecoratorCreatureNetCore.csproj", "{09E64345-DD14-46C3-9325-EDA49BA12964}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -212,6 +214,10 @@ Global
 		{C46A68D6-6560-4C39-9E6D-79E9C382F446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C46A68D6-6560-4C39-9E6D-79E9C382F446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C46A68D6-6560-4C39-9E6D-79E9C382F446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09E64345-DD14-46C3-9325-EDA49BA12964}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09E64345-DD14-46C3-9325-EDA49BA12964}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09E64345-DD14-46C3-9325-EDA49BA12964}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09E64345-DD14-46C3-9325-EDA49BA12964}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
