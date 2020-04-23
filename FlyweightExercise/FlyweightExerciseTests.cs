@@ -7,20 +7,24 @@ namespace FlyweightExercise
 {
     public class Sentence
     {
-        private readonly List<WordToken> _token;
+        private readonly Dictionary<string, WordToken> _tokens =
+            new Dictionary<string, WordToken>();
 
         public Sentence(string plainText)
         {
-            _token = plainText.Split(' ')
-                .Select(token => new WordToken(token))
-                .ToList();
+            var token = plainText.Split(' ');
+
+            foreach (var t in token)
+            {
+                _tokens.Add(t, new WordToken());
+            }
         }
 
         public WordToken this[int index]
         {
             get
             {
-                return _token[index];
+                return _tokens[_tokens.Keys.ToList()[index]];
             }
         }
 
@@ -28,9 +32,9 @@ namespace FlyweightExercise
         {
             var sb = new StringBuilder();
 
-            foreach (var token in _token)
+            foreach (var pair in _tokens)
             {
-                sb.Append(token.ToString());
+                sb.Append(pair.Value.Capitalize ? pair.Key.ToUpper() : pair.Key);
                 sb.Append(" ");
             }
 
@@ -40,19 +44,6 @@ namespace FlyweightExercise
         public class WordToken
         {
             public bool Capitalize { get; set; }
-
-            public string Value { get; private set; }
-
-            public WordToken(string value, bool capitalize = false)
-            {
-                Capitalize = capitalize;
-                Value = value;
-            }
-
-            public override string ToString()
-            {
-                return Capitalize ? Value.ToUpper() : Value;
-            }
         }
     }
 
