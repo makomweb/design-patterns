@@ -72,7 +72,13 @@ namespace ProxyProperty
 
     public class Creature
     {
-        public Property<int> Agility { get; set; }
+        private Property<int> _agility = new Property<int>();
+
+        public int Agility
+        {
+            get => _agility.Value;
+            set => _agility.Value = value;
+        }
     }
 
     public class PropertyProxyTests
@@ -83,6 +89,11 @@ namespace ProxyProperty
             var c = new Creature();
             c.Agility = 10; // c.set_Agility(10) ! is not whats supposed to be!
                             // c.Agility = new Property<int>(10); 
+
+            Assert.AreEqual(10, c.Agility);
+
+            c.Agility = 10;
+            Assert.AreEqual(10, c.Agility);
         }
     }
 }
