@@ -72,7 +72,7 @@ namespace ProxyProperty
 
     public class Creature
     {
-        private Property<int> _agility = new Property<int>();
+        private readonly Property<int> _agility = new Property<int>();
 
         public int Agility
         {
