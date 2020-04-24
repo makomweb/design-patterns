@@ -94,7 +94,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FlyweightExercise", "Flywei
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyProtection", "ProxyProtection\ProxyProtection.csproj", "{CD9AA176-FE56-4287-AABC-6EB626E0FE63}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyProperty", "ProxyProperty\ProxyProperty.csproj", "{6E09509F-A806-4199-AB3E-F5FF72DD6F86}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyProperty", "ProxyProperty\ProxyProperty.csproj", "{6E09509F-A806-4199-AB3E-F5FF72DD6F86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyValue", "ProxyValue\ProxyValue.csproj", "{57F0C8AD-59D5-4856-ADA6-F1D8BDFFECA3}"
+EndProject
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
