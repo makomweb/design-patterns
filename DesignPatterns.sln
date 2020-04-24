@@ -102,6 +102,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProxyComposite", "ProxyComp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyCompositionWithArrayBackedProperties", "ProxyCompositionWithArrayBackedProperties\ProxyCompositionWithArrayBackedProperties.csproj", "{1731778B-1A99-48C1-809F-EA73C14626B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyDynamic", "ProxyDynamci\ProxyDynamic.csproj", "{6252BAE7-A6CF-4421-8D0F-0E7257D2A882}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -296,6 +298,10 @@ Global
 		{1731778B-1A99-48C1-809F-EA73C14626B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1731778B-1A99-48C1-809F-EA73C14626B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1731778B-1A99-48C1-809F-EA73C14626B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6252BAE7-A6CF-4421-8D0F-0E7257D2A882}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6252BAE7-A6CF-4421-8D0F-0E7257D2A882}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6252BAE7-A6CF-4421-8D0F-0E7257D2A882}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6252BAE7-A6CF-4421-8D0F-0E7257D2A882}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
