@@ -58,18 +58,63 @@ namespace ChainMethod
         }
     }
 
+    public class IncreasedDefenseModidifer : CreatureModifier
+    {
+        public IncreasedDefenseModidifer(Creature creature) : base(creature)
+        {
+
+        }
+
+        public override void Handle()
+        {
+            Debug.WriteLine($"Increasing {_creature.Name}'s defense");
+            _creature.Defense += 3;
+            base.Handle();
+        }
+    }
+
+    public class NoBonusesModifier : CreatureModifier
+    {
+        public NoBonusesModifier(Creature creature) :base(creature)
+        {
+        }
+
+        public override void Handle()
+        {
+            // Do nothing!
+        }
+    }
+
     public class CreatureModifierTests
     {
         [Test]
-        public void Test_goblin()
+        public void Test_goblin_attack_if_no_bonuses_are_allowed()
         {
             var goblin = new Creature("Goblin", 2, 2);
             var root = new CreatureModifier(goblin);
+
+            root.Add(new NoBonusesModifier(goblin));
 
             Debug.WriteLine("Let's double the goblin's attack");
 
             root.Add(new DoubleAttackModifier(goblin));
 
+            root.Handle();
+
+            Debug.WriteLine(goblin);
+        }
+
+        [Test]
+        public void Test_goblin_attack_defense()
+        {
+            var goblin = new Creature("Goblin", 2, 2);
+            var root = new CreatureModifier(goblin);
+
+            Debug.WriteLine("Let's double the goblin's attack");
+            root.Add(new DoubleAttackModifier(goblin));
+
+            Debug.WriteLine("Let's increase the goblin's defense");
+            root.Add(new IncreasedDefenseModidifer(goblin));
             root.Handle();
 
             Debug.WriteLine(goblin);
