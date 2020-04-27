@@ -78,6 +78,15 @@ namespace ChainExercise
     public class ChainExerciseTests
     {
         [Test]
+        public void Assert_goblin()
+        {
+            var game = new Game();
+            var goblin = new Goblin(game);
+            Assert.AreEqual(1, goblin.Attack);
+            Assert.AreEqual(1, goblin.Defense);
+        }
+
+        [Test]
         public void Assert_3_ordinary_goblins()
         {
             var game = new Game();
