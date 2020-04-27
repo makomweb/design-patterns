@@ -112,6 +112,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainMethod", "ChainMethod\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainBroker", "ChainBroker\ChainBroker.csproj", "{4E4FA09E-BBA8-4A41-BC10-38148F8EC890}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChainExercise", "ChainExercise\ChainExercise.csproj", "{1CEA6F2B-5044-4337-BE08-12817CAD9937}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -326,6 +328,10 @@ Global
 		{4E4FA09E-BBA8-4A41-BC10-38148F8EC890}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4E4FA09E-BBA8-4A41-BC10-38148F8EC890}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4E4FA09E-BBA8-4A41-BC10-38148F8EC890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CEA6F2B-5044-4337-BE08-12817CAD9937}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CEA6F2B-5044-4337-BE08-12817CAD9937}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CEA6F2B-5044-4337-BE08-12817CAD9937}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CEA6F2B-5044-4337-BE08-12817CAD9937}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
