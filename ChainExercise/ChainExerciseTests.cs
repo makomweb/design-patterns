@@ -16,8 +16,7 @@ namespace ChainExercise
         public Goblin(Game game)
         {
             game.Creatures.Add(this);
-
-            new AttributeModifier(this, game).Handle();
+            game.Handle();
         }
     }
 
@@ -31,24 +30,12 @@ namespace ChainExercise
     public class Game
     {
         public IList<Creature> Creatures = new List<Creature>();
-    }
-
-    public class AttributeModifier
-    {
-        private Creature _creature;
-        private Game _game;
-
-        public AttributeModifier(Creature creature, Game game)
-        {
-            _creature = creature;
-            _game = game;
-        }
 
         public void Handle()
         {
             {
-                var newDefense = _game.Creatures.Count;
-                foreach (var c in _game.Creatures)
+                var newDefense = Creatures.Count;
+                foreach (var c in Creatures)
                 {
                     if (c is GoblinKing)
                     {
@@ -62,9 +49,9 @@ namespace ChainExercise
             }
 
             {
-                if (_game.Creatures.Any(c => c is GoblinKing))
+                if (Creatures.Any(c => c is GoblinKing))
                 {
-                    foreach (var c in _game.Creatures)
+                    foreach (var c in Creatures)
                     {
                         if (c is GoblinKing)
                         {
@@ -79,7 +66,7 @@ namespace ChainExercise
                 }
                 else
                 {
-                    foreach (var c in _game.Creatures)
+                    foreach (var c in Creatures)
                     {
                         c.Attack = 1;
                     }
