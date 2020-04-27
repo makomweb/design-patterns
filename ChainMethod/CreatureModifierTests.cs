@@ -7,8 +7,8 @@ namespace ChainMethod
     public class Creature
     {
         public string Name { get; private set; }
-        public int Attack { get; set; }
-        public int Defense { get; set; }
+        public int Attack { get; private set; }
+        public int Defense { get; private set; }
 
         public Creature(string name, int attack, int defense)
         {
