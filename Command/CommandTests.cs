@@ -3,6 +3,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Command
 {
@@ -40,6 +41,7 @@ namespace Command
     public interface ICommand
     {
         void Call();
+        void Undo();
     }
 
     public class BankAccountCommand : ICommand
@@ -70,6 +72,21 @@ namespace Command
             }
         }
 
+        public void Undo()
+        {
+            switch (_action)
+            {
+                case Action.Deposit:
+                    _account.Withdraw(_amount);
+                    break;
+                case Action.Withdraw:
+                    _account.Deposit(_amount);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException($"Argument {_action} is not supported!");
+            }
+        }
+
         public enum Action { Deposit, Withdraw }
     }
     public class CommandTests
@@ -87,6 +104,31 @@ namespace Command
             foreach(var c in commands)
             {
                 c.Call();
+            }
+
+            Debug.WriteLine(ba);
+        }
+
+        [Test]
+        public void Reverse_commands_on_a_bank_account()
+        {
+            var ba = new BankAccount();
+            var commands = new List<BankAccountCommand>
+            {
+                new BankAccountCommand(ba, BankAccountCommand.Action.Deposit, 100),
+                new BankAccountCommand(ba, BankAccountCommand.Action.Withdraw, 50)
+            };
+
+            foreach (var c in commands)
+            {
+                c.Call();
+            }
+
+            Debug.WriteLine(ba);
+
+            foreach (var c in Enumerable.Reverse(commands))
+            {
+                c.Undo();
             }
 
             Debug.WriteLine(ba);
