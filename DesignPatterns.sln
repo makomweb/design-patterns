@@ -118,6 +118,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Command", "Command\Command.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandComposite", "CommandComposite\CommandComposite.csproj", "{D3514EAE-52A3-4EA5-892A-4BA0C05DC669}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommandExercise", "CommandExercise\CommandExercise.csproj", "{BCDA5ADB-C39D-4666-99F1-C5BF0BD1C304}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -344,6 +346,10 @@ Global
 		{D3514EAE-52A3-4EA5-892A-4BA0C05DC669}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3514EAE-52A3-4EA5-892A-4BA0C05DC669}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3514EAE-52A3-4EA5-892A-4BA0C05DC669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCDA5ADB-C39D-4666-99F1-C5BF0BD1C304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCDA5ADB-C39D-4666-99F1-C5BF0BD1C304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCDA5ADB-C39D-4666-99F1-C5BF0BD1C304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCDA5ADB-C39D-4666-99F1-C5BF0BD1C304}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
