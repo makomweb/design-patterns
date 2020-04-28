@@ -116,7 +116,7 @@ namespace Command
             var commands = new List<BankAccountCommand>
             {
                 new BankAccountCommand(ba, BankAccountCommand.Action.Deposit, 100),
-                new BankAccountCommand(ba, BankAccountCommand.Action.Withdraw, 50)
+                new BankAccountCommand(ba, BankAccountCommand.Action.Withdraw, 1000)
             };
 
             foreach (var c in commands)
