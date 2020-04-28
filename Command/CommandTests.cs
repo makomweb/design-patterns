@@ -19,16 +19,18 @@ namespace Command
             Debug.WriteLine($"Deposited ${amount}, balance is now {_balance}");
         }
 
-        public void Withdraw(int amount)
+        public bool Withdraw(int amount)
         {
             if (_balance - amount >= _overdraftlimit)
             {
                 _balance -= amount;
                 Debug.WriteLine($"Withdrew ${amount}, balance is now {_balance}");
+                return true;
             }
             else
             {
                 Debug.WriteLine($"Cannot withdraw ${amount}, balance is now {_balance}");
+                return false;
             }
         }
 
@@ -49,6 +51,7 @@ namespace Command
         private BankAccount _account;
         private Action _action;
         private int _amount;
+        bool _succeeded;
 
         public BankAccountCommand(BankAccount account, Action action, int amount)
         {
@@ -63,9 +66,10 @@ namespace Command
             {
                 case Action.Deposit:
                     _account.Deposit(_amount);
+                    _succeeded = true;
                     break;
                 case Action.Withdraw:
-                    _account.Withdraw(_amount);
+                    _succeeded = _account.Withdraw(_amount);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException($"Argument {_action} is not supported!");
@@ -74,6 +78,8 @@ namespace Command
 
         public void Undo()
         {
+            if (!_succeeded) return;
+
             switch (_action)
             {
                 case Action.Deposit:
