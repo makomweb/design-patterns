@@ -35,13 +35,14 @@ namespace CommandComposite
 
         public override string ToString()
         {
-            return $"{nameof(_balance)}: {_balance} {nameof(_overdraftlimit)}: {_overdraftlimit}";
+            return $"Balance: {_balance}";
         }
     }
 
     public interface ICommand
     {
         void Call();
+
         void Undo();
 
         bool Succeeded { get; set; }
@@ -111,14 +112,14 @@ namespace CommandComposite
 
         }
 
-        public void Call()
+        public virtual void Call()
         {
             ForEach(cmd => cmd.Call());
         }
 
         private IEnumerable<BankAccountCommand> This() => this;
 
-        public void Undo()
+        public virtual void Undo()
         {
             foreach (var c in This().Reverse())
             {
@@ -126,7 +127,7 @@ namespace CommandComposite
             }
         }
 
-        public bool Succeeded
+        public virtual bool Succeeded
         {
             get
             {
@@ -137,6 +138,39 @@ namespace CommandComposite
                 foreach (var cmd in this)
                 {
                     cmd.Succeeded = value;
+                }
+            }
+        }
+
+        public class MoneyTransferCommand : CompositeBankAccountCommand
+        {
+            public MoneyTransferCommand(BankAccount from, BankAccount to, int amount)
+            {
+                AddRange(new[]
+                    {
+                        new BankAccountCommand(from,
+                            BankAccountCommand.Action.Withdraw, amount),
+                        new BankAccountCommand(to,
+                            BankAccountCommand.Action.Deposit, amount)
+                    }
+                );
+            }
+
+            public override void Call()
+            {
+                BankAccountCommand last = null;
+                foreach (var cmd in this)
+                {
+                    if (last == null || last.Succeeded)
+                    {
+                        cmd.Call();
+                        last = cmd;
+                    }
+                    else
+                    {
+                        cmd.Undo();
+                        break;
+                    }
                 }
             }
         }
@@ -163,6 +197,29 @@ namespace CommandComposite
 
                 composite.Undo();
                 Debug.WriteLine(ba);
+            }
+
+            [Test]
+            public void Test_money_transfer()
+            {
+                var from = new BankAccount();
+                from.Deposit(100);
+                var to = new BankAccount();
+
+                Debug.WriteLine($"From account: {from}");
+                Debug.WriteLine($"To account: {to}");
+
+                var transfer = new MoneyTransferCommand(from, to, 100);
+
+                transfer.Call();
+                Debug.WriteLine($"From account: {from}");
+                Debug.WriteLine($"To account: {to}");
+
+                transfer.Undo();
+                Debug.WriteLine($"From account: {from}");
+                Debug.WriteLine($"To account: {to}");
+
+                Assert.True(transfer.Succeeded);
             }
         }
     }
