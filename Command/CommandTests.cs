@@ -1,4 +1,3 @@
-using Microsoft.Office.Interop.Outlook;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
