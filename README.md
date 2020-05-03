@@ -134,7 +134,10 @@ A chain of components who all get a chance to process a command or a query, opti
 
 ## Command pattern
 
-![image](./Images/summary-command.png)
+- encapsulate all details of an object operation in a separate object
+- define instruction for applying the command (either in the command itself, or elsewhere)
+- optionally define instructions for undoing the command
+- can create composite commands (a.k.a. macros)
 
 ## Interpreter pattern
 
