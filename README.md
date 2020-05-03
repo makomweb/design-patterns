@@ -38,6 +38,12 @@
 - a factory can be external or reside inside the class a an inner class
 - hierarchies of factories can be used to create related objects
 ## Prototype pattern
+
+- to implement a prototype, partially construct an object and store it somewhere
+- clone the prototype
+    - implement your own deep copy functionality, or
+    - serialize and deserialize
+- customized the resulting instance
 ## Singleton and MonoState pattern
 
 # Structural patterns
