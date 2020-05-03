@@ -141,3 +141,24 @@ A chain of components who all get a chance to process a command or a query, opti
 
 ## Interpreter pattern
 
+### ANTLR
+
+[www.antlr.org](http://www.antlr.org/tools.html)
+
+Existing lexers and parsers for various programming languages.
+
+### Summary
+
+- barring simple cases, an interpreter acts in two stages
+    1) lexing turns input into a set of tokens, e.g. 
+    `3*(4+5)` becomes `Lit[3] Star LeftParen Lit[4] Plus Lit[5] RightParen`
+    2) parsing turns tokens into meaningful constructs, e.g.
+    ```
+    MultiplicationExpression[
+        Integer[3],
+        AdditionExpression[
+            Integer[4], Integer[5]
+        ]
+    ]
+    ```
+- parsed data can be traversed

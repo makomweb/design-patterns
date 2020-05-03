@@ -1,11 +1,54 @@
 using NUnit.Framework;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Data;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 
 namespace Interpreter
 {
+    public interface IElement
+    {
+        int Value { get; }
+    }
+
+    public class Integer : IElement
+    {
+        public Integer(int value)
+        {
+            Value = value;
+        }
+
+        public int Value { get; }
+    }
+
+    public class BinaryOperation : IElement
+    {
+        public enum Type { Addition, Substraction }
+
+        public Type MyType;
+
+        public IElement Left, Right;
+
+        public int Value
+        {
+            get
+            {
+                switch (MyType)
+                {
+                    case Type.Addition:
+                        return Left.Value + Right.Value;
+                    case Type.Substraction:
+                        return Left.Value - Right.Value;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+    }
+
     public class Token
     {
         public enum Type { Integer, Plus, Minus, Lparen, Rparen }
@@ -73,6 +116,70 @@ namespace Interpreter
         {
             return string.Join(" ", tokens);
         }
+
+        public static IElement Parse(IReadOnlyList<Token> tokens)
+        {
+            var result = new BinaryOperation();
+
+            bool haveLHS = false;
+
+            for (int i = 0; i < tokens.Count; i++)
+            {
+                var token = tokens[i];
+
+                switch (token.MyType)
+                {
+                    case Token.Type.Integer:
+                        var integer = new Integer(int.Parse(token.Text));
+                        if (!haveLHS)
+                        {
+                            result.Left = integer;
+                            haveLHS = true;
+                        }
+                        else
+                        {
+                            result.Right = integer;
+                        }
+                        break;
+                    case Token.Type.Plus:
+                        result.MyType = BinaryOperation.Type.Addition;
+                        break;
+                    case Token.Type.Minus:
+                        result.MyType = BinaryOperation.Type.Substraction;
+                        break;
+                    case Token.Type.Lparen:
+                        {
+                            int j = i;
+                            for (; j < tokens.Count; ++j)
+                            {
+                                if (tokens[j].MyType == Token.Type.Rparen)
+                                {
+                                    break;
+                                }
+                            }
+
+                            var subExpr = tokens.Skip(i + 1).Take(j - i - 1).ToList();
+                            var elem = Parse(subExpr);
+                            if (!haveLHS)
+                            {
+                                result.Left = elem;
+                                haveLHS = true;
+                            }
+                            else
+                            {
+                                result.Right = elem;
+                            }
+
+                            i = j; // advance
+                        }
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+
+            return result;
+        }
     }
 
 
@@ -88,6 +195,13 @@ namespace Interpreter
             Assert.True(tokens.Any());
             var joined = tokens.AsString();
             Assert.False(string.IsNullOrEmpty(joined));
-        }
+
+            var parsed = Logic.Parse(tokens);
+            var value = parsed.Value;
+
+            Debug.WriteLine($"{input} = {value}");
+
+            Assert.AreEqual(4, value);
+        }        
     }
 }
