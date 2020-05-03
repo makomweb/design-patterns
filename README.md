@@ -95,6 +95,10 @@
 - object removal from chain (e.g., in `Dispose()`)
 
 
+- store common data externally
+- define the idea of 'ranges' on homogeneous collections and store data related to those ranges
+- .NET string interning _is_ the _Flyweight_ pattern
+
 ## Proxy
 
 ### What's the difference between decorator and proxy?
