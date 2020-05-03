@@ -32,6 +32,11 @@
 - to make builder fluent, return _this_
 - different facets of an object can be built with different builders working in tandem via a base class
 ## Factory pattern
+
+- a factory method is a static method that creates objects
+- a factory can take care of object creation
+- a factory can be external or reside inside the class a an inner class
+- hierarchies of factories can be used to create related objects
 ## Prototype pattern
 ## Singleton and MonoState pattern
 
