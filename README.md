@@ -64,8 +64,15 @@
 - decouple abstraction from implementation
 - both can exist as hierarchies
 - a stronger form of encapsulation
+
 ## Composite pattern
-![image].()
+
+- objects can use other objects via inheritance/composition
+- some composed and singular objects need similar/identical behaviors
+- composite design pattern lets us treat both types of objects uniformly
+- C# has special support for the _enumeration_ concept
+- a single object can masquerade as a collection with `yield return this;`
+
 ## Chain Of Responsibility pattern
 
 ```
@@ -77,8 +84,29 @@ A chain of components who all get a chance to process a command or a query, opti
 - command = asking for an action or change (e.g., please set your attack value to 2)
 - query = asking for information (e.g., please give me your attack value)
 - _CQS_ = having separate means of sending commands and queries to e.g., direct field access
+
 ### Chain of responsibility: summary
 
 - can be implemented as a chain of references or a centralized construct
 - enlist objects in the chain, possibly controlling their order
 - object removal from chain (e.g., in `Dispose()`)
+
+
+## Proxy
+
+### What's the difference between decorator and proxy?
+
+![image](./Images/summary-proxy-vs-decorator)
+
+## Chain Of Responsibility pattern
+
+![image](./Images/introduction-chain-of-responsibility.png)
+![image](./Images/introduction-cqs.png)
+![image](./Images/summary-chain-of-responsibility.png)
+
+## Command pattern
+
+![image](./Images/summary-command.png)
+
+## Interpreter pattern
+
