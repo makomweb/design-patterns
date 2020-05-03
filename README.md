@@ -54,6 +54,11 @@
 
 # Structural patterns
 ## Adapter pattern
+
+- implementing an adapter is easy
+- determine the API you have and the API you need
+- create a compount which aggregates (has a reference to, ...) the adaptee
+- intermediate representations can pile up: use caching and other optimizations
 ## Bridge pattern
 ![image](./Images/summary-bridge.png)
 ## Composite pattern
