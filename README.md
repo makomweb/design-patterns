@@ -46,6 +46,12 @@
 - customized the resulting instance
 ## Singleton and MonoState pattern
 
+- making a *safe* singleton is easy:
+    - construct a static `Lazy<T>` and return its _value_
+- singletons are difficult to test
+- instead of directly using a singleton, consider depending on an abstraction (e.g., an interface)
+- consier defining singleton lifetime in DI container
+
 # Structural patterns
 ## Adapter pattern
 ## Bridge pattern
