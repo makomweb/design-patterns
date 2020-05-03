@@ -126,7 +126,11 @@ A chain of components who all get a chance to process a command or a query, opti
 - query = asking for information (e.g., please give me your attack value)
 - _CQS_ = having separate means of sending commands and queries to e.g., direct field access
 
-![image](./Images/summary-chain-of-responsibility.png)
+### Chain of responsibility: summary
+
+- can be implemented as a chain of references or a centralized construct
+- enlist objects in the chain, possibly controlling their order
+- object removal from chain (e.g., in `Dispose()`)
 
 ## Command pattern
 
