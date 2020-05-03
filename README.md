@@ -60,10 +60,12 @@
 - create a compount which aggregates (has a reference to, ...) the adaptee
 - intermediate representations can pile up: use caching and other optimizations
 ## Bridge pattern
-![image](./Images/summary-bridge.png)
+
+- decouple abstraction from implementation
+- both can exist as hierarchies
+- a stronger form of encapsulation
 ## Composite pattern
 ![image].()
-
 ## Chain Of Responsibility pattern
 
 ```
