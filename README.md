@@ -103,7 +103,10 @@
 
 ### What's the difference between decorator and proxy?
 
-![image](./Images/summary-proxy-vs-decorator)
+- proxy provides an identical interface;
+decorator provides an enhanced interface
+- decorator typically aggregates (or has reference to) what it is decorating;proxy does not have to
+- proxy might not even be working with a materialized object
 
 ## Chain Of Responsibility pattern
 
