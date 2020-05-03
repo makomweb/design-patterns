@@ -120,7 +120,12 @@ decorator provides an enhanced interface
 A chain of components who all get a chance to process a command or a query, optionally having default processing implementation and an ability to terminate the processing chain.
 ```
 
-![image](./Images/introduction-cqs.png)
+### Command Query Separation
+
+- command = asking for an action or change (e.g., please set your attack value to 2)
+- query = asking for information (e.g., please give me your attack value)
+- _CQS_ = having separate means of sending commands and queries to e.g., direct field access
+
 ![image](./Images/summary-chain-of-responsibility.png)
 
 ## Command pattern
