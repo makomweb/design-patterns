@@ -108,6 +108,12 @@ decorator provides an enhanced interface
 - decorator typically aggregates (or has reference to) what it is decorating;proxy does not have to
 - proxy might not even be working with a materialized object
 
+### Poxy: summary
+
+- a proxy has the same interface as the underlying object
+- to create a proxy, simply replicate the existing interface of an object
+- add relevant functionality to the redefined member functions
+- different proxies (communication, logging, caching) have completely different behaviors
 ## Chain Of Responsibility pattern
 
 ![image](./Images/introduction-chain-of-responsibility.png)
