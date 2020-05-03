@@ -83,7 +83,10 @@
     - very limited due to inability to inherit from type parameters
     
 ## Facade pattern
-![image](./Images/summary-facade.png)
+
+- build a facade to provide a simplified API over a set of classes
+- may wish to (optionally) expose internals through the facade
+- may allow users to 'escalate' to use more complex APIs if they need to
 
 ### Chain of responsibility: summary
 
