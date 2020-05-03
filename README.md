@@ -73,17 +73,17 @@
 - C# has special support for the _enumeration_ concept
 - a single object can masquerade as a collection with `yield return this;`
 
-## Chain Of Responsibility pattern
+## Decorator pattern
 
-```
-A chain of components who all get a chance to process a command or a query, optionally having default processing implementation and an ability to terminate the processing chain.
-```
-
-### Command Query Separation
-
-- command = asking for an action or change (e.g., please set your attack value to 2)
-- query = asking for information (e.g., please give me your attack value)
-- _CQS_ = having separate means of sending commands and queries to e.g., direct field access
+- a decorator keeps the reference to the decorated object(s)
+- may or may not proxy over calls
+    - use _Resharper_ to generate deleget members
+- exists in a _static_ variation
+    - `X<Y<Foo>>`
+    - very limited due to inability to inherit from type parameters
+    
+## Facade pattern
+![image](./Images/summary-facade.png)
 
 ### Chain of responsibility: summary
 
