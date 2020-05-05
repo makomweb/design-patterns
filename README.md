@@ -163,3 +163,15 @@ Existing lexers and parsers for various programming languages.
     ]
     ```
 - parsed data can be traversed
+
+## TO BE IMPLEMENTED
+
+- Iterator
+- Mediator
+- Memento
+- Null Object
+- Observer
+- State
+- Strategy
+- Template Method
+- Visitor
