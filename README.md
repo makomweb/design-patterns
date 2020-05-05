@@ -1,10 +1,4 @@
-# Design Patterns
-
-1) Creational
-2) Structural
-3) Behavioral
-
-## SOLID
+# SOLID
 
 - single responsibility principle
     - a class hould only have one reason to change
@@ -24,19 +18,29 @@
 - dependency inversion principle
     - high-level modules should not depend upon low-level ones
     - use abstraction
+
+# Design Patterns
+
+1) Creational
+2) Structural
+3) Behavioral
+
 # Creational patterns
+
 ## Builder pattern
 
 - a builder is a separate component for building an object
 - can either give builder a constructor or return it via a static function
 - to make builder fluent, return _this_
 - different facets of an object can be built with different builders working in tandem via a base class
+
 ## Factory pattern
 
 - a factory method is a static method that creates objects
 - a factory can take care of object creation
 - a factory can be external or reside inside the class a an inner class
 - hierarchies of factories can be used to create related objects
+
 ## Prototype pattern
 
 - to implement a prototype, partially construct an object and store it somewhere
@@ -44,6 +48,7 @@
     - implement your own deep copy functionality, or
     - serialize and deserialize
 - customized the resulting instance
+
 ## Singleton and MonoState pattern
 
 - making a *safe* singleton is easy:
@@ -53,12 +58,14 @@
 - consier defining singleton lifetime in DI container
 
 # Structural patterns
+
 ## Adapter pattern
 
 - implementing an adapter is easy
 - determine the API you have and the API you need
 - create a compount which aggregates (has a reference to, ...) the adaptee
 - intermediate representations can pile up: use caching and other optimizations
+
 ## Bridge pattern
 
 - decouple abstraction from implementation
@@ -88,12 +95,7 @@
 - may wish to (optionally) expose internals through the facade
 - may allow users to 'escalate' to use more complex APIs if they need to
 
-### Chain of responsibility: summary
-
-- can be implemented as a chain of references or a centralized construct
-- enlist objects in the chain, possibly controlling their order
-- object removal from chain (e.g., in `Dispose()`)
-
+## Flyweight
 
 - store common data externally
 - define the idea of 'ranges' on homogeneous collections and store data related to those ranges
@@ -114,6 +116,7 @@ decorator provides an enhanced interface
 - to create a proxy, simply replicate the existing interface of an object
 - add relevant functionality to the redefined member functions
 - different proxies (communication, logging, caching) have completely different behaviors
+
 ## Chain Of Responsibility pattern
 
 ```
@@ -141,13 +144,11 @@ A chain of components who all get a chance to process a command or a query, opti
 
 ## Interpreter pattern
 
-### ANTLR
-
 [www.antlr.org](http://www.antlr.org/tools.html)
 
 Existing lexers and parsers for various programming languages.
 
-### Summary
+### Interpreter pattern: Summary
 
 - barring simple cases, an interpreter acts in two stages
     1) lexing turns input into a set of tokens, e.g. 
