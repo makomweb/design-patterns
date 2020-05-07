@@ -36,7 +36,8 @@ namespace IteratorExercise
         {
             get
             {
-                return null;
+                var tree = new BinaryTree<T>(this);
+                return tree.PreOrder.Select(node => node.Value);
             }
         }
     }
@@ -95,10 +96,8 @@ namespace IteratorExercise
                     new Node<char>('G', 
                         new Node<char>('H'), 
                         null)));
-
-            var tree = new BinaryTree<char>(root);
-
-            var result = tree.PreOrder.Select(node => node.Value);
+            
+            var result = root.PreOrder;
             Assert.That(new char[] { 'A', 'B', 'D', 'E', 'F', 'C', 'G', 'H' }, Is.EquivalentTo(result));
         }
     }
