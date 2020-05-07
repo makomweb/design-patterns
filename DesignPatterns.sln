@@ -122,9 +122,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CommandExercise", "CommandE
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interpreter", "Interpreter\Interpreter.csproj", "{1F09D1AB-17AF-46E1-AC09-C2DE32FD639B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterpreterExercise", "InterpreterExercise\InterpreterExercise.csproj", "{7FCFC909-DFD9-471B-B235-10E73D0BB035}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterpreterExercise", "InterpreterExercise\InterpreterExercise.csproj", "{7FCFC909-DFD9-471B-B235-10E73D0BB035}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InterpreterExercise2", "InterpreterExercise2\InterpreterExercise2.csproj", "{FD155899-C73A-4D90-A776-04AD0DEFCDA7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "InterpreterExercise2", "InterpreterExercise2\InterpreterExercise2.csproj", "{FD155899-C73A-4D90-A776-04AD0DEFCDA7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iterator", "Iterator\Iterator.csproj", "{69273BAE-4A96-43E8-8BE1-1C79C510B195}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IteratorArrayBackedProperties", "IteratorArrayBackedProperties\IteratorArrayBackedProperties.csproj", "{22C4EE53-4C7C-4D63-985E-DE8D216C9347}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -368,6 +372,14 @@ Global
 		{FD155899-C73A-4D90-A776-04AD0DEFCDA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD155899-C73A-4D90-A776-04AD0DEFCDA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD155899-C73A-4D90-A776-04AD0DEFCDA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69273BAE-4A96-43E8-8BE1-1C79C510B195}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69273BAE-4A96-43E8-8BE1-1C79C510B195}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69273BAE-4A96-43E8-8BE1-1C79C510B195}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69273BAE-4A96-43E8-8BE1-1C79C510B195}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C4EE53-4C7C-4D63-985E-DE8D216C9347}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C4EE53-4C7C-4D63-985E-DE8D216C9347}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C4EE53-4C7C-4D63-985E-DE8D216C9347}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C4EE53-4C7C-4D63-985E-DE8D216C9347}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
