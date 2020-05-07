@@ -164,9 +164,16 @@ Existing lexers and parsers for various programming languages.
     ```
 - parsed data can be traversed
 
+## Iterator pattern
+
+- an iterator specifies how you can traverse an object
+- an iterator object, unlike a method, cannot be recursive
+- generally, an `IEnumerable<T>` -returning method is enough
+- iteration works through _duck typing_ - you need a `GetEnumerator()` that yields a type that has `Current` and `MoveNext()`
+- traversing a tree can be done _inorder_, _preorder_, _postorder
+
 ## TO BE IMPLEMENTED
 
-- Iterator
 - Mediator
 - Memento
 - Null Object
