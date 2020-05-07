@@ -130,6 +130,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Iterator", "Iterator\Iterat
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IteratorArrayBackedProperties", "IteratorArrayBackedProperties\IteratorArrayBackedProperties.csproj", "{22C4EE53-4C7C-4D63-985E-DE8D216C9347}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IteratorExercise", "IteratorExercise\IteratorExercise.csproj", "{67BC6F5F-8A3F-4928-95C7-798BDB16A316}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -380,6 +382,10 @@ Global
 		{22C4EE53-4C7C-4D63-985E-DE8D216C9347}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{22C4EE53-4C7C-4D63-985E-DE8D216C9347}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{22C4EE53-4C7C-4D63-985E-DE8D216C9347}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67BC6F5F-8A3F-4928-95C7-798BDB16A316}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67BC6F5F-8A3F-4928-95C7-798BDB16A316}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67BC6F5F-8A3F-4928-95C7-798BDB16A316}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67BC6F5F-8A3F-4928-95C7-798BDB16A316}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
