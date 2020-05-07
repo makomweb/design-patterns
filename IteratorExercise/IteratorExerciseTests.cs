@@ -1,6 +1,5 @@
 using NUnit.Framework;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace IteratorExercise
 {
@@ -32,49 +31,30 @@ namespace IteratorExercise
             }
         }
 
+        private static IEnumerable<Node<T>> Traverse(Node<T> current)
+        {
+            yield return current;
+
+            if (current.Left != null)
+            {
+                foreach (var left in Traverse(current.Left))
+                    yield return left;
+            }
+
+            if (current.Right != null)
+            {
+                foreach (var right in Traverse(current.Right))
+                    yield return right;
+            }
+        }
+
         public IEnumerable<T> PreOrder
         {
             get
             {
-                var tree = new BinaryTree<T>(this);
-                return tree.PreOrder.Select(node => node.Value);
-            }
-        }
-    }
-
-    public class BinaryTree<T>
-    {
-        private Node<T> _root;
-
-        public BinaryTree(Node<T> root)
-        {
-            _root = root;
-        }
-
-        public IEnumerable<Node<T>> PreOrder
-        {
-            get
-            {
-                IEnumerable<Node<T>> Traverse(Node<T> current)
+                foreach (var node in Traverse(this))
                 {
-                    yield return current;
-
-                    if (current.Left != null)
-                    {
-                        foreach (var left in Traverse(current.Left))
-                            yield return left;
-                    }
-
-                    if (current.Right != null)
-                    {
-                        foreach (var right in Traverse(current.Right))
-                            yield return right;
-                    }
-                }
-
-                foreach (var node in Traverse(_root))
-                {
-                    yield return node;
+                    yield return node.Value;
                 }
             }
         }
