@@ -172,9 +172,18 @@ Existing lexers and parsers for various programming languages.
 - iteration works through _duck typing_ - you need a `GetEnumerator()` that yields a type that has `Current` and `MoveNext()`
 - traversing a tree can be done _inorder_, _preorder_, _postorder
 
+## Mediator pattern
+
+- create the mediator and have each object in the system refer to it
+    - e.g., in a field
+- mediator engages in bidirectional communication with it's connected components
+- mediator has functions the component can call
+- components have functions the mediator can call
+- event processing (e.g., Rx) libraries make communication easier to implement
+- `MediatR` is a powerful mediator NuGET package
+ 
 ## TO BE IMPLEMENTED
 
-- Mediator
 - Memento
 - Null Object
 - Observer
