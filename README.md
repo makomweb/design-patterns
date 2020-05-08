@@ -182,9 +182,15 @@ Existing lexers and parsers for various programming languages.
 - event processing (e.g., Rx) libraries make communication easier to implement
 - `MediatR` is a powerful mediator NuGET package
  
+## Memento pattern
+
+- mementos are used to roll back state arbitrarily
+- a memento is simpply a token/handle class with (typically) no functions of its own
+- a memento is not required to expose directly the state(s) to which it reverts the system
+- can be used to implement undo/redo
+
 ## TO BE IMPLEMENTED
 
-- Memento
 - Null Object
 - Observer
 - State
