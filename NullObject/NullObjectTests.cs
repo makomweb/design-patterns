@@ -12,7 +12,7 @@ namespace NullObject
         void Warn(string msg);
     }
 
-    class ConsoleLog : ILog
+    public class ConsoleLog : ILog
     {
         public void Info(string msg)
         {
@@ -22,6 +22,17 @@ namespace NullObject
         public void Warn(string msg)
         {
             Debug.WriteLine("Warning!!! " + msg);
+        }
+    }
+
+    public class NullLog : ILog
+    {
+        public void Info(string msg)
+        {
+        }
+
+        public void Warn(string msg)
+        {
         }
     }
 
@@ -57,10 +68,13 @@ namespace NullObject
         public void Test_using_a_container()
         {
             var cb = new ContainerBuilder();
-            cb.Register(ctx => new BankAccount(null));
+            cb.RegisterType<BankAccount>();
+            cb.RegisterType<NullLog>()
+                .As<ILog>();
             using (var c = cb.Build())
             {
                 var ba = c.Resolve<BankAccount>();
+                Assert.NotNull(ba);
             }
         }
     }
