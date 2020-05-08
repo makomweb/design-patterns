@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using NUnit.Framework;
 using System;
 using System.Diagnostics;
@@ -28,16 +29,15 @@ namespace NullObject
         private readonly ILog _log;
         public int Balance { get; private set; }
 
-        public BankAccount(ILog log)
+        public BankAccount([CanBeNull] ILog log)
         {
-            if (log == null) throw new ArgumentNullException(paramName: nameof(log));
             _log = log;
         }
 
         public void Deposit(int amount)
         {
             Balance += amount;
-            _log.Info($"Deposited {amount}, balance is now {Balance}");
+            _log?.Info($"Deposited {amount}, balance is now {Balance}");
         }
     }
 
@@ -46,8 +46,8 @@ namespace NullObject
         [Test]
         public void Test1()
         {
-            var log = new ConsoleLog();
-            var ba = new BankAccount(log);
+            //var log = new ConsoleLog();
+            var ba = new BankAccount(/*log*/ null);
             ba.Deposit(100);
             Assert.True(ba.Balance != 0);
         }
