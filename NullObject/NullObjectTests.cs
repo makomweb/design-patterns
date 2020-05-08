@@ -1,3 +1,4 @@
+using Autofac;
 using JetBrains.Annotations;
 using NUnit.Framework;
 using System;
@@ -56,7 +57,7 @@ namespace NullObject
         public void Test_using_a_container()
         {
             var cb = new ContainerBuilder();
-            cb.RegisterInstance((ILog)null);
+            cb.Register(ctx => new BankAccount(null));
             using (var c = cb.Build())
             {
                 var ba = c.Resolve<BankAccount>();
