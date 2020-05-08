@@ -18,9 +18,13 @@ namespace MementoExercise
     {
         public List<Token> Tokens { get; }
 
-        public Memento(IEnumerable<Token> tokens)
+        public Memento(IEnumerable<Token> tokens) : this(tokens.Select(t => t.Value))
         {
-            Tokens = tokens.ToList();
+        }
+
+        public Memento(IEnumerable<int> values)
+        {
+            Tokens = values.Select(v => new Token(v)).ToList();
         }
     }
 
@@ -71,9 +75,10 @@ namespace MementoExercise
             var m3 = m.AddToken(333);
 
             t.Value = 444;
+            Assert.AreEqual(444, t.Value);
 
             m.Revert(m1);
-            Assert.AreEqual(444, m.Tokens.Last().Value);
+            Assert.AreEqual(111, m.Tokens.Last().Value);
         }
     }
 }
