@@ -1,8 +1,10 @@
 using Autofac;
+using ImpromptuInterface;
 using JetBrains.Annotations;
 using NUnit.Framework;
 using System;
 using System.Diagnostics;
+using System.Dynamic;
 
 namespace NullObject
 {
@@ -53,6 +55,15 @@ namespace NullObject
         }
     }
 
+    public class Null<TInterface> : DynamicObject where TInterface : class
+    {
+        public override bool TryInvokeMember(InvokeMemberBinder binder, object[] args, out object result)
+        {
+            result = Activator.CreateInstance(binder.ReturnType);
+            return true;
+        }
+    }
+
     public class NullObjectTests
     {
         [Test]
@@ -76,6 +87,15 @@ namespace NullObject
                 var ba = c.Resolve<BankAccount>();
                 Assert.NotNull(ba);
             }
+        }
+
+        [Test]
+        public void Different_approach_for_null_object()
+        {
+            var log = new Null<ILog>().ActLike<ILog>();
+            log.Info("blablabla");
+            var ba = new BankAccount(log);
+            ba.Deposit(1000);
         }
     }
 }
