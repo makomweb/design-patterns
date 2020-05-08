@@ -132,13 +132,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IteratorArrayBackedProperti
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "IteratorExercise", "IteratorExercise\IteratorExercise.csproj", "{67BC6F5F-8A3F-4928-95C7-798BDB16A316}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mediator", "Mediator\Mediator.csproj", "{73442588-FE5F-4C91-BB4C-802F27BDFF42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mediator", "Mediator\Mediator.csproj", "{73442588-FE5F-4C91-BB4C-802F27BDFF42}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatorEventBroker", "MediatorEventBroker\MediatorEventBroker.csproj", "{1DFBAD5D-5C66-4F66-9292-9AA153E318AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatorEventBroker", "MediatorEventBroker\MediatorEventBroker.csproj", "{1DFBAD5D-5C66-4F66-9292-9AA153E318AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatorMediatR", "MediatorMediatR\MediatorMediatR.csproj", "{C2EBD46A-807F-4625-B757-E7AB6B51A4AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatorMediatR", "MediatorMediatR\MediatorMediatR.csproj", "{C2EBD46A-807F-4625-B757-E7AB6B51A4AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MediatorExercise", "MediatorExercise\MediatorExercise.csproj", "{0D40EF6B-5AFD-48E6-BF47-211F79512674}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MediatorExercise", "MediatorExercise\MediatorExercise.csproj", "{0D40EF6B-5AFD-48E6-BF47-211F79512674}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Memento", "Memento\Memento.csproj", "{AB11B0FB-4D55-4C65-9CB8-F5A39C54BE8E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -410,6 +412,10 @@ Global
 		{0D40EF6B-5AFD-48E6-BF47-211F79512674}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D40EF6B-5AFD-48E6-BF47-211F79512674}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D40EF6B-5AFD-48E6-BF47-211F79512674}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB11B0FB-4D55-4C65-9CB8-F5A39C54BE8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB11B0FB-4D55-4C65-9CB8-F5A39C54BE8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB11B0FB-4D55-4C65-9CB8-F5A39C54BE8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB11B0FB-4D55-4C65-9CB8-F5A39C54BE8E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
