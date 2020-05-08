@@ -51,5 +51,16 @@ namespace NullObject
             ba.Deposit(100);
             Assert.True(ba.Balance != 0);
         }
+
+        [Test]
+        public void Test_using_a_container()
+        {
+            var cb = new ContainerBuilder();
+            cb.RegisterInstance((ILog)null);
+            using (var c = cb.Build())
+            {
+                var ba = c.Resolve<BankAccount>();
+            }
+        }
     }
 }
