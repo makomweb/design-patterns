@@ -189,6 +189,16 @@ Existing lexers and parsers for various programming languages.
 - a memento is not required to expose directly the state(s) to which it reverts the system
 - can be used to implement undo/redo
 
+## Null Object pattern
+
+- implement the required interface
+- rewrite the methods with empty bodies
+    - if method is non-void, return `default(T)`
+    - if these values are ever used, you are in trouble 
+- supply an instance of Null Object in place of actual object
+- dynamic construction possible 
+    - with associated performance implications
+    
 ## TO BE IMPLEMENTED
 
 - Null Object
