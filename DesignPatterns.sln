@@ -164,6 +164,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverPropertyDependencie
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverDeclarativeSubscriptions", "ObserverDeclarativeSubscriptions\ObserverDeclarativeSubscriptions.csproj", "{B1BB4CEB-6405-4BEB-ADC4-8BD1BF826982}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverExercise", "ObserverExercise\ObserverExercise.csproj", "{AA137725-56E4-4AA9-9485-1255F3774D2E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -482,6 +484,10 @@ Global
 		{B1BB4CEB-6405-4BEB-ADC4-8BD1BF826982}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1BB4CEB-6405-4BEB-ADC4-8BD1BF826982}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1BB4CEB-6405-4BEB-ADC4-8BD1BF826982}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AA137725-56E4-4AA9-9485-1255F3774D2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AA137725-56E4-4AA9-9485-1255F3774D2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AA137725-56E4-4AA9-9485-1255F3774D2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AA137725-56E4-4AA9-9485-1255F3774D2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
