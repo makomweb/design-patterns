@@ -1,7 +1,10 @@
 using NUnit.Framework;
+using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Diagnostics;
+using System.Linq.Expressions;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 
 namespace ObserverBidirectional
@@ -62,6 +65,47 @@ namespace ObserverBidirectional
         }
     }
 
+    public sealed class BidirectionalBinding : IDisposable
+    {
+        private bool _disposed;
+
+        public BidirectionalBinding(
+            INotifyPropertyChanged first,
+            Expression<Func<object>> firstProperty, 
+            INotifyPropertyChanged second,
+            Expression<Func<object>> secondProperty)
+        {
+            if (firstProperty.Body is MemberExpression firstExpr &&
+                secondProperty.Body is MemberExpression secondExpr)
+            {
+                if (firstExpr.Member is PropertyInfo firstProp &&
+                    secondExpr.Member is PropertyInfo secondProp)
+                {
+                    first.PropertyChanged += (sender, args) =>
+                    {
+                        if (!_disposed)
+                        {
+                            secondProp.SetValue(second, firstProp.GetValue(first));
+                        }
+                    };
+
+                    second.PropertyChanged += (sender, args) =>
+                    {
+                        if (!_disposed)
+                        {
+                            firstProp.SetValue(first, secondProp.GetValue(second));
+                        }
+                    };
+                }
+            }
+        }
+
+        public void Dispose()
+        {
+            _disposed = true;
+        }
+    }
+
     public class ObserverTests
     {
         [Test]
@@ -69,6 +113,8 @@ namespace ObserverBidirectional
         {
             var p = new Product { Name = "Book" };
             var w = new Window { ProductName = "Book" };
+
+#if false
             p.PropertyChanged += (sender, eventArgs) =>
             {
                 if (eventArgs.PropertyName == "Name")
@@ -86,10 +132,17 @@ namespace ObserverBidirectional
                     p.Name = w.ProductName;
                 }
             };
+#else
+            using var binding = new BidirectionalBinding(
+                p, () => p.Name,
+                w, () => w.ProductName);
+#endif
 
             p.Name = "Smart book";
-
             Assert.AreEqual("Smart book", w.ProductName);
+
+            w.ProductName = "Really smart book";
+            Assert.AreEqual("Really smart book", p.Name);
         }
     }
 }
