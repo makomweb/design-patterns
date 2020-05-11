@@ -1,12 +1,11 @@
 using NUnit.Framework;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
 
 namespace ObserverRx
 {
-    public class Market
+    public class Market // observable
     {
         public BindingList<float> Prices = new BindingList<float>();
 
@@ -20,7 +19,7 @@ namespace ObserverRx
         public event EventHandler<float> PriceAdded;
     }
 
-    public class ObserverRxTests
+    public class ObserverRxTests // observer
     {
         [Test]
         public void Test1()
