@@ -158,6 +158,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObserverSpecialInterfaces",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverRx", "ObserverRx\ObserverRx.csproj", "{B62440D2-FF2C-46B4-AA98-5F465A848F64}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverBidirectional", "ObserverBidirectional\ObserverBidirectional.csproj", "{2AA84240-2142-4B06-B763-A6CAA2086022}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -464,6 +466,10 @@ Global
 		{B62440D2-FF2C-46B4-AA98-5F465A848F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B62440D2-FF2C-46B4-AA98-5F465A848F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B62440D2-FF2C-46B4-AA98-5F465A848F64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2AA84240-2142-4B06-B763-A6CAA2086022}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2AA84240-2142-4B06-B763-A6CAA2086022}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2AA84240-2142-4B06-B763-A6CAA2086022}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2AA84240-2142-4B06-B763-A6CAA2086022}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
