@@ -199,9 +199,15 @@ Existing lexers and parsers for various programming languages.
 - dynamic construction possible 
     - with associated performance implications
 
+## Observer pattern
+
+- observer is an intrusive approach: an observable must provide an event to subscribe to
+- special care must be taken to prevent issues in multithreaded scenarios
+- .NET comes with observable collections
+- `IObserver<T>/IObservable<T>` are used in stream processing (Reactive Extensions)
+
 ## TO BE IMPLEMENTED
 
-- Observer
 - State
 - Strategy
 - Template Method
