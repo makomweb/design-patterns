@@ -1,31 +1,22 @@
 using NUnit.Framework;
-using System.ComponentModel;
-using System.Runtime.CompilerServices;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace ObserverRx
 {
-    public class Market : INotifyPropertyChanged
+    public class Market
     {
-        private float _volatility;
+        private List<float> _prices = new List<float>();
 
-        public float Volatility
+        public void Add(float price)
         {
-            get => _volatility;
-            set
-            {
-                if (value.Equals(_volatility)) return;
+            _prices.Add(price);
 
-                _volatility = value;
-                OnPropertyChanged();
-            }
+            PriceAdded?.Invoke(this, price);
         }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+        public event EventHandler<float> PriceAdded;
     }
 
     public class ObserverRxTests
@@ -34,13 +25,12 @@ namespace ObserverRx
         public void Test1()
         {
             var m = new Market();
-            m.PropertyChanged += (sender, args) =>
+            m.PriceAdded += (sender, args) =>
             {
-                if (args.PropertyName == "Volatility")
-                {
-                    // TODO Handle!
-                }
+                Debug.WriteLine($"A new price was added {args}.");
             };
+
+            m.Add(123);
         }
     }
 }
