@@ -160,6 +160,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverRx", "ObserverRx\Ob
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverBidirectional", "ObserverBidirectional\ObserverBidirectional.csproj", "{2AA84240-2142-4B06-B763-A6CAA2086022}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverPropertyDependencies", "ObserverPropertyDependencies\ObserverPropertyDependencies.csproj", "{98AA70C2-587D-4548-9A6E-D3EC977BB636}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -470,6 +472,10 @@ Global
 		{2AA84240-2142-4B06-B763-A6CAA2086022}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2AA84240-2142-4B06-B763-A6CAA2086022}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2AA84240-2142-4B06-B763-A6CAA2086022}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98AA70C2-587D-4548-9A6E-D3EC977BB636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98AA70C2-587D-4548-9A6E-D3EC977BB636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98AA70C2-587D-4548-9A6E-D3EC977BB636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98AA70C2-587D-4548-9A6E-D3EC977BB636}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
