@@ -1,15 +1,21 @@
 using NUnit.Framework;
 using System;
+using System.Diagnostics;
 
 namespace Observer
 {
+    public class FallIllEventArgs
+    {
+        public string Address;
+    }
+
     public class Person
     {
-        public event EventHandler<EventArgs> FallsIll;
+        public event EventHandler<FallIllEventArgs> FallsIll;
 
         public void CatchACold()
         {
-            FallsIll?.Invoke(this, EventArgs.Empty);
+            FallsIll?.Invoke(this, new FallIllEventArgs { Address = "123 London Road" });
         }
     }
 
@@ -29,8 +35,9 @@ namespace Observer
             Assert.True(_received);
         }
 
-        private void CallDoctor(object sender, EventArgs e)
+        private void CallDoctor(object sender, FallIllEventArgs e)
         {
+            Debug.WriteLine($"a doctor needs to be called to {e.Address}.");
             _received = true;
         }
     }
