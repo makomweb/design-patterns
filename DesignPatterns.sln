@@ -154,7 +154,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObserverWeakEvent", "Observ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverWeakEvent2", "ObserverWeakEvent2\ObserverWeakEvent2.csproj", "{0082EEB9-AC97-4A0A-AB4D-CE4C6CA07776}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverSpecialInterfaces", "ObserverSpecialInterfaces\ObserverSpecialInterfaces.csproj", "{62E41879-CA38-4645-A104-7B286847C46F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ObserverSpecialInterfaces", "ObserverSpecialInterfaces\ObserverSpecialInterfaces.csproj", "{62E41879-CA38-4645-A104-7B286847C46F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ObserverRx", "ObserverRx\ObserverRx.csproj", "{B62440D2-FF2C-46B4-AA98-5F465A848F64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -458,6 +460,10 @@ Global
 		{62E41879-CA38-4645-A104-7B286847C46F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62E41879-CA38-4645-A104-7B286847C46F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62E41879-CA38-4645-A104-7B286847C46F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B62440D2-FF2C-46B4-AA98-5F465A848F64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B62440D2-FF2C-46B4-AA98-5F465A848F64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B62440D2-FF2C-46B4-AA98-5F465A848F64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B62440D2-FF2C-46B4-AA98-5F465A848F64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
