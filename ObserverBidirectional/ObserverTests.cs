@@ -1,6 +1,7 @@
 using NUnit.Framework;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.Runtime.CompilerServices;
 
 namespace ObserverBidirectional
@@ -26,6 +27,11 @@ namespace ObserverBidirectional
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public override string ToString()
+        {
+            return $"Product: {Name}";
+        }
     }
 
     public class Window : INotifyPropertyChanged
@@ -49,9 +55,11 @@ namespace ObserverBidirectional
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-    }
-    {
-        public string ProductName { get; set; }
+
+        public override string ToString()
+        {
+            return $"Window: {ProductName}";
+        }
     }
 
     public class ObserverTests
@@ -59,7 +67,29 @@ namespace ObserverBidirectional
         [Test]
         public void Test1()
         {
-            Assert.Pass();
+            var p = new Product { Name = "Book" };
+            var w = new Window { ProductName = "Book" };
+            p.PropertyChanged += (sender, eventArgs) =>
+            {
+                if (eventArgs.PropertyName == "Name")
+                {
+                    Debug.WriteLine($"Name was changed in product");
+                    w.ProductName = p.Name;
+                }
+            };
+
+            w.PropertyChanged += (sender, eventArgs) =>
+            {
+                if (eventArgs.PropertyName == "ProductName")
+                {
+                    Debug.WriteLine($"Name was changed in window");
+                    p.Name = w.ProductName;
+                }
+            };
+
+            p.Name = "Smart book";
+
+            Assert.AreEqual("Smart book", w.ProductName);
         }
     }
 }
