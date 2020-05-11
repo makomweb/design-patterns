@@ -15,7 +15,7 @@ namespace ObserverBidirectional
             get => _name;
             set
             {
-                if (value == _name) return;
+                if (value == _name) return; // change guard prevents infinite recursion
                 _name = value;
                 OnPropertyChanged();
             }
@@ -43,7 +43,7 @@ namespace ObserverBidirectional
             get => _productName;
             set
             {
-                if (value == _productName) return;
+                if (value == _productName) return; // change guard prevents infinite recursion
                 _productName = value;
                 OnPropertyChanged();
             }
