@@ -1,7 +1,7 @@
 # SOLID
 
 - single responsibility principle
-    - a class hould only have one reason to change
+    - a class should only have one reason to change
     - _separation of concerns_ - different classes handling different, independent tasks/problems
 
 - open-closed principle
