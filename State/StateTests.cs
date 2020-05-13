@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 namespace State
 {
@@ -38,13 +39,13 @@ namespace State
                     (Trigger.HungUp, State.OffHook),
                     (Trigger.CallConnected, State.Connected),
                 },
-                [State.OffHook] = new List<(Trigger, State)>
+                [State.Connected] = new List<(Trigger, State)>
                 {
                     (Trigger.LeftMessage, State.OffHook),
                     (Trigger.HungUp, State.OffHook),
                     (Trigger.PlacedOnHold, State.OnHold)
                 },
-                [State.OffHook] = new List<(Trigger, State)>
+                [State.OnHold] = new List<(Trigger, State)>
                 {
                     (Trigger.TakenOffHold, State.Connected),
                     (Trigger.HungUp, State.OffHook)
@@ -52,14 +53,22 @@ namespace State
             };
 
         [Test]
-        public void Test1()
+        public void Test_trigger_path()
         {
             var state = State.OffHook;
 
-            while (true)
+            var triggerPath = new List<Trigger>
             {
-                Debug.WriteLine($"The phone is currently {state}");
-                Debug.WriteLine("Select a trigger:");
+                Trigger.CallDialed,
+                Trigger.CallConnected,
+                Trigger.PlacedOnHold,
+                Trigger.HungUp
+            };
+
+            foreach (var trigger in triggerPath)
+            {
+                Debug.WriteLine($"Current state: {state}");
+                Debug.WriteLine("Possible triggers:");
 
                 for (int i = 0; i < _rules[state].Count; i++)
                 {
@@ -68,11 +77,13 @@ namespace State
                     Debug.WriteLine($"{i}. {t}");
                 }
 
-                int input = int.Parse(Console.ReadLine());
+                Debug.WriteLine($"Selecting trigger: {trigger}");
 
-                var (_, s) = _rules[state][input];
+                var (_, s) = _rules[state].First(t => t.Item1 == trigger);                
 
                 state = s;
+
+                Debug.WriteLine($"New state: ------> {state}");
             }
         }
     }
