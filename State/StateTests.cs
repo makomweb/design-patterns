@@ -1,73 +1,79 @@
 using NUnit.Framework;
+using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 
-namespace StateClassic
+namespace State
 {
-    public class Switch
+    public enum State
     {
-        public State State = new OffState();
-
-        public void On()
-        {
-            State.On(this);
-        }
-
-        public void Off()
-        {
-            State.Off(this);
-        }
+        OffHook,
+        Connecting,
+        Connected,
+        OnHold
     }
 
-    public abstract class State
+    public enum Trigger
     {
-        public virtual void On(Switch sw)
-        {
-            Debug.WriteLine("Light is already on.");
-        }
-
-        public virtual void Off(Switch sw)
-        {
-            Debug.WriteLine("Light is already off.");
-        }
+        CallDialed,
+        HungUp,
+        CallConnected,
+        PlacedOnHold,
+        TakenOffHold,
+        LeftMessage
     }
 
-    public class OnState : State
-    {
-        public OnState()
-        {
-            Debug.WriteLine("Light turned on.");
-        }
-
-        public override void Off(Switch sw)
-        {
-            Debug.WriteLine("Turning light off...");
-            sw.State = new OffState();
-        }
-    }
-
-    public class OffState : State
-    {
-        public OffState()
-        {
-            Debug.WriteLine("Light turned off.");
-        }
-
-        public override void On(Switch sw)
-        {
-            Debug.WriteLine("Turning light on...");
-            sw.State = new OnState();
-        }
-    }
 
     public class StateTests
     {
+        private static Dictionary<State, List<(Trigger, State)>> _rules
+            = new Dictionary<State, List<(Trigger, State)>>
+            {
+                [State.OffHook] = new List<(Trigger, State)>
+                {
+                    (Trigger.CallDialed, State.Connecting)
+                },
+                [State.Connecting] = new List<(Trigger, State)>
+                {
+                    (Trigger.HungUp, State.OffHook),
+                    (Trigger.CallConnected, State.Connected),
+                },
+                [State.OffHook] = new List<(Trigger, State)>
+                {
+                    (Trigger.LeftMessage, State.OffHook),
+                    (Trigger.HungUp, State.OffHook),
+                    (Trigger.PlacedOnHold, State.OnHold)
+                },
+                [State.OffHook] = new List<(Trigger, State)>
+                {
+                    (Trigger.TakenOffHold, State.Connected),
+                    (Trigger.HungUp, State.OffHook)
+                },
+            };
+
         [Test]
         public void Test1()
         {
-            var ls = new Switch();
-            ls.On();
-            ls.Off();
-            ls.Off();
+            var state = State.OffHook;
+
+            while (true)
+            {
+                Debug.WriteLine($"The phone is currently {state}");
+                Debug.WriteLine("Select a trigger:");
+
+                for (int i = 0; i < _rules[state].Count; i++)
+                {
+                    var (t, _) = _rules[state][i];
+
+                    Debug.WriteLine($"{i}. {t}");
+                }
+
+                int input = int.Parse(Console.ReadLine());
+
+                var (_, s) = _rules[state][input];
+
+                state = s;
+            }
         }
     }
 }
