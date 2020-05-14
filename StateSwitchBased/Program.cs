@@ -30,7 +30,7 @@ namespace StateSwitchBased
                         }
                         else if (!code.StartsWith(entry.ToString()))
                         {
-                            state = State.Failed;
+                            goto case State.Failed;
                         }
                         break;
                     case State.Failed:
