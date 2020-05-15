@@ -206,9 +206,17 @@ Existing lexers and parsers for various programming languages.
 - .NET comes with observable collections
 - `IObserver<T>/IObservable<T>` are used in stream processing (Reactive Extensions)
 
+## State pattern
+
+- given sufficient complexity, it plays to formally define possible states and events/triggers
+- can define
+    - state entry/exit behaviors
+    - action when a particular event causes a transition
+    - guard conditions enabling/disabling a transition
+    - default action when no transition are found for an event
+
 ## TO BE IMPLEMENTED
 
-- State
 - Strategy
 - Template Method
 - Visitor
