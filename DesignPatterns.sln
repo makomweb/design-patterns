@@ -170,11 +170,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateClassic", "StateClassi
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "State", "State\State.csproj", "{055DAEC4-1041-4830-918E-6620C4B9DCEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateSwitchBased", "StateSwitchBased\StateSwitchBased.csproj", "{BCE1E728-614A-40A6-8078-B1369EBD5F8D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateSwitchBased", "StateSwitchBased\StateSwitchBased.csproj", "{BCE1E728-614A-40A6-8078-B1369EBD5F8D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateSwitchExpressionBased", "StateSwitchExpressionBased\StateSwitchExpressionBased.csproj", "{3C181A08-BE18-41A5-8B64-B3E8FD63EB17}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateSwitchExpressionBased", "StateSwitchExpressionBased\StateSwitchExpressionBased.csproj", "{3C181A08-BE18-41A5-8B64-B3E8FD63EB17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateStateless", "StateStateless\StateStateless.csproj", "{19A90567-DD17-4605-AD5C-494320658360}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateStateless", "StateStateless\StateStateless.csproj", "{19A90567-DD17-4605-AD5C-494320658360}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateExercise", "StateExercise\StateExercise.csproj", "{57FD345B-FDCF-4F12-A541-54D209CF86E4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -518,6 +520,10 @@ Global
 		{19A90567-DD17-4605-AD5C-494320658360}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{19A90567-DD17-4605-AD5C-494320658360}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{19A90567-DD17-4605-AD5C-494320658360}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57FD345B-FDCF-4F12-A541-54D209CF86E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57FD345B-FDCF-4F12-A541-54D209CF86E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57FD345B-FDCF-4F12-A541-54D209CF86E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57FD345B-FDCF-4F12-A541-54D209CF86E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
