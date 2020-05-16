@@ -25,7 +25,7 @@ namespace StateExercise
         {
             _entered.Add(digit);
 
-            if (AreSame(_combination.ToList(), _entered))
+            if (_combination.IsSameAs(_entered))
             {
                 Status = OpenLabel;
             }
@@ -42,15 +42,18 @@ namespace StateExercise
                 }
             }
         }
+    }
 
-        private static bool AreSame(List<int> one, List<int> other)
+    public static class ArrayHelper
+    {
+        public static bool IsSameAs(this int[] one, List<int> other)
         {
             var areListsEqual = true;
 
-            if (one.Count != other.Count)
+            if (one.Count() != other.Count)
                 return false;
 
-            for (var i = 0; i < one.Count; i++)
+            for (var i = 0; i < one.Count(); i++)
             {
                 if (other[i] != one[i])
                 {
@@ -60,10 +63,7 @@ namespace StateExercise
 
             return areListsEqual;
         }
-    }
 
-    public static class ArrayHelper
-    {
         public static bool Contains<T>(this T[] array, T[] candidate)
         {
             if (IsEmptyLocate(array, candidate))
