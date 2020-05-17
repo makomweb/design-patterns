@@ -215,8 +215,13 @@ Existing lexers and parsers for various programming languages.
     - guard conditions enabling/disabling a transition
     - default action when no transition is found for an event
 
+# Strategy
+
+- exact behavior can be selected at runtime (_dynamic_) or at compile time (_static_)
+- aka policy
+- 
+
 ## TO BE IMPLEMENTED
 
-- Strategy
 - Template Method
 - Visitor
