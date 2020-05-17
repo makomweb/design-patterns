@@ -2,6 +2,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 
 namespace StrategyComparisonEquality
 {
@@ -56,12 +57,31 @@ namespace StrategyComparisonEquality
 
     public class StrategyTests
     {
-        [Test]
-        public void Test1()
-        {
-            var people = new List<Person>();
+        private List<Person> _people = new List<Person>
+            {
+                new Person(23, "Peter", 44),
+                new Person(11, "Paul", 33),
+                new Person(665, "Mary", 30),
+            };
 
-            people.Sort();
+        [Test]
+        public void Sort_by_id()
+        {
+            Assert.AreEqual(23, _people.First().Id);
+
+            _people.Sort(); // default strategy
+
+            Assert.AreEqual(11, _people.First().Id);
+        }
+
+        [Test]
+        public void Sort_by_name()
+        {
+            Assert.AreEqual(23, _people.First().Id);
+
+            _people.Sort((one, other) => one.Name.CompareTo(other.Name)); // lambda used as strategy
+
+            Assert.AreEqual(665, _people.First().Id);
         }
     }
 }
