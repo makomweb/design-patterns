@@ -208,12 +208,12 @@ Existing lexers and parsers for various programming languages.
 
 ## State pattern
 
-- given sufficient complexity, it plays to formally define possible states and events/triggers
+- define possible states and events/triggers
 - can define
     - state entry/exit behaviors
     - action when a particular event causes a transition
     - guard conditions enabling/disabling a transition
-    - default action when no transition are found for an event
+    - default action when no transition is found for an event
 
 ## TO BE IMPLEMENTED
 
