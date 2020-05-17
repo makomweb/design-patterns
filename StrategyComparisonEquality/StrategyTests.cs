@@ -19,6 +19,19 @@ namespace StrategyComparisonEquality
             Age = age;
         }
 
+        private sealed class NameRelationalComparer : IComparer<Person>
+        {
+            public int Compare([AllowNull] Person x, [AllowNull] Person y)
+            {
+                if (ReferenceEquals(x, y)) return 0;
+                if (ReferenceEquals(null, y)) return 1;
+                if (ReferenceEquals(null, x)) return -1;
+                return string.Compare(x.Name, y.Name, StringComparison.Ordinal);
+            }
+        }
+
+        public static IComparer<Person> NameComparer { get; } = new NameRelationalComparer();
+
         public int CompareTo(object obj)
         {
             if (ReferenceEquals(this, obj)) return 0;
@@ -69,7 +82,8 @@ namespace StrategyComparisonEquality
         {
             Assert.AreEqual(23, _people.First().Id);
 
-            _people.Sort(); // default strategy
+            // default strategy
+            _people.Sort();
 
             Assert.AreEqual(11, _people.First().Id);
         }
@@ -79,7 +93,9 @@ namespace StrategyComparisonEquality
         {
             Assert.AreEqual(23, _people.First().Id);
 
-            _people.Sort((one, other) => one.Name.CompareTo(other.Name)); // lambda used as strategy
+            // lambda used as strategy
+            //_people.Sort((one, other) => one.Name.CompareTo(other.Name));
+            _people.Sort(Person.NameComparer);
 
             Assert.AreEqual(665, _people.First().Id);
         }
