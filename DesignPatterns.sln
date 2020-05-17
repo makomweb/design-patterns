@@ -176,7 +176,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateSwitchExpressionBased"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateStateless", "StateStateless\StateStateless.csproj", "{19A90567-DD17-4605-AD5C-494320658360}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StateExercise", "StateExercise\StateExercise.csproj", "{57FD345B-FDCF-4F12-A541-54D209CF86E4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateExercise", "StateExercise\StateExercise.csproj", "{57FD345B-FDCF-4F12-A541-54D209CF86E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strategy", "Strategy\Strategy.csproj", "{BE2B3EB0-5225-42DF-B9D1-E39F0E0EAD06}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -524,6 +526,10 @@ Global
 		{57FD345B-FDCF-4F12-A541-54D209CF86E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57FD345B-FDCF-4F12-A541-54D209CF86E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57FD345B-FDCF-4F12-A541-54D209CF86E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE2B3EB0-5225-42DF-B9D1-E39F0E0EAD06}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE2B3EB0-5225-42DF-B9D1-E39F0E0EAD06}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE2B3EB0-5225-42DF-B9D1-E39F0E0EAD06}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE2B3EB0-5225-42DF-B9D1-E39F0E0EAD06}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
