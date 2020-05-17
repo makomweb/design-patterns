@@ -182,6 +182,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strategy", "Strategy\Strate
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyCompileTime", "StrategyCompileTime\StrategyCompileTime.csproj", "{F87FF8B9-641D-402E-870F-EC7062ACC8E7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyComparisonEquality", "StrategyComparisonEquality\StrategyComparisonEquality.csproj", "{F492F763-55D0-4A92-8949-5A13CD4C5F28}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -536,6 +538,10 @@ Global
 		{F87FF8B9-641D-402E-870F-EC7062ACC8E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F87FF8B9-641D-402E-870F-EC7062ACC8E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F87FF8B9-641D-402E-870F-EC7062ACC8E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F492F763-55D0-4A92-8949-5A13CD4C5F28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F492F763-55D0-4A92-8949-5A13CD4C5F28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F492F763-55D0-4A92-8949-5A13CD4C5F28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F492F763-55D0-4A92-8949-5A13CD4C5F28}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
