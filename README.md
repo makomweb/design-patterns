@@ -219,7 +219,10 @@ Existing lexers and parsers for various programming languages.
 
 - exact behavior can be selected at runtime (_dynamic_) or at compile time (_static_)
 - aka policy
-- 
+- define the algorithm at a high level
+- define the interface you expect each strategy to follow
+- provide implementation of the algorithm by following the interace
+- decide for either static or dynamic composition of the implementation
 
 ## TO BE IMPLEMENTED
 
