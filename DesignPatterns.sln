@@ -188,6 +188,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyExercise", "Strateg
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateMethod", "TemplateMethod\TemplateMethod.csproj", "{F232E5FE-A772-42D5-AB6C-65CB063B11EC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateMethodFunctional", "TemplateMethodFunctional\TemplateMethodFunctional.csproj", "{23E8C6E0-C502-49C2-9065-F13A2C5218C2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -554,6 +556,10 @@ Global
 		{F232E5FE-A772-42D5-AB6C-65CB063B11EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F232E5FE-A772-42D5-AB6C-65CB063B11EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F232E5FE-A772-42D5-AB6C-65CB063B11EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23E8C6E0-C502-49C2-9065-F13A2C5218C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23E8C6E0-C502-49C2-9065-F13A2C5218C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23E8C6E0-C502-49C2-9065-F13A2C5218C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23E8C6E0-C502-49C2-9065-F13A2C5218C2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
