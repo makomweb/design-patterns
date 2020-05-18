@@ -10,44 +10,63 @@ namespace VisitorPrintingExpressions
 
     public class DoubleExpression : Expression
     {
-        private readonly double _value;
-
         public DoubleExpression(double value)
         {
-            _value = value;
+            Value = value;
         }
+
+        public double Value { get; }
 
         public override void Print(StringBuilder sb)
         {
-            sb.Append(_value);
+            sb.Append(Value);
         }
     }
 
     public class AdditionExpression : Expression
     {
-        private Expression _left;
-        private Expression _right;
-
         public AdditionExpression(Expression left, Expression right)
         {
-            _left = left;
-            _right = right;
+            Left = left;
+            Right = right;
         }
+
+        public Expression Left { get; }
+        public Expression Right { get; }
 
         public override void Print(StringBuilder sb)
         {
             sb.Append("(");
-            _left.Print(sb);
+            Left.Print(sb);
             sb.Append(" + ");
-            _right.Print(sb);
+            Right.Print(sb);
             sb.Append(")");
+        }
+    }
+
+    public static class ExpressionPrinter
+    {
+        public static void Print(Expression e, StringBuilder sb)
+        {
+            if (e is DoubleExpression de)
+            {
+                sb.Append(de.Value);
+            }
+            else if (e is AdditionExpression ae)
+            {
+                sb.Append("(");
+                ae.Left.Print(sb);
+                sb.Append(" + ");
+                ae.Right.Print(sb);
+                sb.Append(")");
+            }
         }
     }
 
     public class Tests
     {
         [Test]
-        public void Test1()
+        public void Test_using_the_print_method()
         {
             var exp = new AdditionExpression(
                 new DoubleExpression(1.0),
@@ -59,6 +78,23 @@ namespace VisitorPrintingExpressions
             var sb = new StringBuilder();
 
             exp.Print(sb);
+
+            Assert.False(string.IsNullOrEmpty(sb.ToString()));
+        }
+
+        [Test]
+        public void Test_using_the_print_function()
+        {
+            var exp = new AdditionExpression(
+                new DoubleExpression(1.0),
+                new AdditionExpression(
+                    new DoubleExpression(2.0),
+                    new DoubleExpression(3.0))
+                );
+
+            var sb = new StringBuilder();
+
+            ExpressionPrinter.Print(exp, sb);
 
             Assert.False(string.IsNullOrEmpty(sb.ToString()));
         }
