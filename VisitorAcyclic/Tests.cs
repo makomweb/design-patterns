@@ -32,7 +32,7 @@ namespace VisitorAcyclic
             Value = value;
         }
 
-        public virtual void Accept(IVisitor visitor)
+        public override void Accept(IVisitor visitor)
         {
             if (visitor is IVisitor<DoubleExpression> typed)
             {
@@ -51,7 +51,7 @@ namespace VisitorAcyclic
             Right = right;
         }
 
-        public virtual void Accept(IVisitor visitor)
+        public override void Accept(IVisitor visitor)
         {
             if (visitor is IVisitor<AdditionExpression> typed)
             {
