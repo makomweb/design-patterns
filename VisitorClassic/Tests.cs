@@ -71,6 +71,25 @@ namespace VisitorClassic
         }
     }
 
+    public class ExpressionCalculator : IExpressionVisitor
+    {
+        public double Result { get; private set; }
+
+        public void Visit(DoubleExpression exp)
+        {
+            Result = exp.Value;
+        }
+
+        public void Visit(AdditionExpression exp)
+        {
+            exp.Left.Accept(this);
+            var a = Result;
+            exp.Right.Accept(this);
+            var b = Result;
+            Result = a + b;
+        }
+    }
+
     public class Tests
     {
         [Test]
@@ -89,6 +108,23 @@ namespace VisitorClassic
 
             string result = printer.ToString();
             Assert.False(string.IsNullOrEmpty(result));
+        }
+
+        [Test]
+        public void Test_using_the_calculator_visitor()
+        {
+            var exp = new AdditionExpression(
+                new DoubleExpression(1.0),
+                new AdditionExpression(
+                    new DoubleExpression(2.0),
+                    new DoubleExpression(3.0))
+                );
+
+            var calc = new ExpressionCalculator();
+
+            calc.Visit(exp);
+
+            Assert.AreEqual(6, calc.Result);
         }
     }
 }
