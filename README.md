@@ -215,7 +215,7 @@ Existing lexers and parsers for various programming languages.
     - guard conditions enabling/disabling a transition
     - default action when no transition is found for an event
 
-# Strategy
+## Strategy
 
 - exact behavior can be selected at runtime (_dynamic_) or at compile time (_static_)
 - aka policy
@@ -224,7 +224,24 @@ Existing lexers and parsers for various programming languages.
 - provide implementation of the algorithm by following the interace
 - decide for either static or dynamic composition of the implementation
 
+## Template
+
+- algorithms can be decomposed into common parts + specifics
+- strategy pattern does this through composition
+    - high level algorithm uses an interface
+    - concrete implementations implement the interface
+- template method does the same thing through inheritance
+    - overall algorithm makes use of abstract member
+    - inheritors override the abstract members
+    - parent template method invoked
+- allows us to define the _skeleton_ of the  algorithm, with concrete
+implementations defined in the subclasses
+
+### Summary
+- define an algorithm at a high level
+- define constituent parts as abstract methods/properties
+- inherit the algorithm class, providing necessary overrides
+
 ## TO BE IMPLEMENTED
 
-- Template Method
 - Visitor
