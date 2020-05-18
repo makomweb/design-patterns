@@ -51,7 +51,7 @@ namespace VisitorDynamic
         [Test]
         public void Test_using_the_print_visitor()
         {
-            var exp = new AdditionExpression(
+            Expression exp = new AdditionExpression(
                 new DoubleExpression(1.0),
                 new AdditionExpression(
                     new DoubleExpression(2.0),
@@ -61,7 +61,7 @@ namespace VisitorDynamic
             var sb = new StringBuilder();
             var printer = new ExpressionPrinter();
 
-            printer.Print(exp, sb);
+            printer.Print((dynamic)exp, sb);
 
             string result = sb.ToString();
             Assert.False(string.IsNullOrEmpty(result));
