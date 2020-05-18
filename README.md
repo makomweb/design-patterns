@@ -242,6 +242,30 @@ implementations defined in the subclasses
 - define constituent parts as abstract methods/properties
 - inherit the algorithm class, providing necessary overrides
 
-## TO BE IMPLEMENTED
+## Visitor 
 
-- Visitor
+- when in need of defining a new operation on an entire class hierarchy
+    - e.g., make a document model printable to HTML/Markdown
+- do not want to keep modifying every class in the hierarchy
+- need access to the non-common aspects of classes in the hierarchy
+    - e.g., an extension method won't do
+- create an external component to handle rendering
+    - but avoid type checks
+
+```
+A pattern where a component (visitor) is allowed to traverse the entire inheritance hierarchy.
+Implemented by propagating a single _visit()_ method throughout the entire hierarchy.
+```
+
+### Dispatch
+
+- Answers: _Which function to call?_
+- single dispatch: depends on the name of the request and the type of the receiver
+- double dispatch: depends on the name of the request and the type of **two** receivers (type of visitor, type of element being visited)
+
+### Summary
+
+- propagate an _accept(Visitor v)_ method throughout the entire hierarchy
+- create a visitor with _Visit(Foo)_, _Visit(Bar)_, ... for each element in the hierarchy
+- each _accept()_ simply calls _visitor.Visit(this)
+- using _dynamic_, we can invoke right overload based on argument type alone (_dynamic dispatch_)
