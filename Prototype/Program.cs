@@ -37,7 +37,12 @@ namespace Prototype
         }
     }
     
-    public class Person
+    public interface IPrototype<T>
+    {
+        T DeepCopy();
+    }
+
+    public class Person : IPrototype<Person>
     {
         public string[] Names;
         public Address Address;
@@ -53,13 +58,18 @@ namespace Prototype
             Address = address;
         }
 
+        public Person DeepCopy()
+        {
+            return new Person(Names, Address.DeepCopy());
+        }
+
         public override string ToString()
         {
             return $"{nameof(Names)}: {string.Join(" ", Names)}, {nameof(Address)}: {Address}";
         }
     }
 
-    public class Address
+    public class Address : IPrototype<Address>
     {
         public string StreetName;
         public int HouseNumber;
@@ -72,6 +82,11 @@ namespace Prototype
 
             StreetName = streetName;
             HouseNumber = houseNumber;
+        }
+
+        public Address DeepCopy()
+        {
+            return new Address(StreetName, HouseNumber);
         }
 
         public override string ToString()
@@ -93,6 +108,10 @@ namespace Prototype
 
             WriteLine(john);
             WriteLine(jane);
+
+            var john2 = john.DeepCopy();
+            john2.Address = new Address("Birmingham Lane", 222);
+            WriteLine(john2);
         }
     }
 }
