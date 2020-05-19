@@ -4,6 +4,7 @@ using NUnit.Framework;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Threading;
@@ -138,6 +139,24 @@ namespace Singleton
         public static PerThreadSingleton Instance = _threadInstance.Value;
     }
 
+    public class Building
+    {
+        public List<Wall> Walls = new List<Wall>();
+    }
+
+    public class Wall
+    {
+        public Point Start, End;
+        public int Height;
+
+        public Wall(Point start, Point end, int height)
+        {
+            Start = start;
+            End = end;
+            Height = height;
+        }
+    }
+
     public class SingletonTests
     {
         [Test]
@@ -220,6 +239,23 @@ namespace Singleton
             });
 
             await Task.WhenAll(t1, t2);
+        }
+
+        [Test]
+        public void Test_house()
+        {
+            var house = new Building();
+
+            // ground floor at 3000
+            house.Walls.Add(new Wall(new Point(0, 0), new Point(5000, 0), 3000));
+            house.Walls.Add(new Wall(new Point(0, 0), new Point(0, 4000), 3000));
+
+            // 1st floor at 3500
+            house.Walls.Add(new Wall(new Point(0, 0), new Point(6000, 0), 3500));
+            house.Walls.Add(new Wall(new Point(0, 0), new Point(0, 4000), 3500));
+
+            // ground floor at 3000
+            house.Walls.Add(new Wall(new Point(5000, 0), new Point(5000, 4000), 3000));
         }
     }
 }
