@@ -24,7 +24,7 @@ namespace EventSourcing
         {
             if (e is AgeQuery query && query.Target == this)
             {
-
+                e.Result = _age;
             }
         }
 
@@ -57,11 +57,17 @@ namespace EventSourcing
         {
             Commands?.Invoke(this, c);
         }
+
+        public T Query<T>(Query q)
+        {
+            Queries?.Invoke(this, q);
+            return (T)q.Result;
+        }
     }
 
     public class Query
     {
-
+        public object Result;
     }
 
     public class AgeQuery : Query
@@ -105,7 +111,9 @@ namespace EventSourcing
 
             eb.Command(new ChangeAgeCommand(p, 33));
 
-            Assert.NotNull(p);
+            var age = eb.Query<int>(new AgeQuery(p));
+
+            Assert.AreEqual(33, age);
         }
     }
 }
