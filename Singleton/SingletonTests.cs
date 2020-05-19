@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using static System.Console;
@@ -139,16 +140,64 @@ namespace Singleton
         public static PerThreadSingleton Instance = _threadInstance.Value;
     }
 
-    public class BuildingContext
+    public sealed class BuildingContext : IDisposable
     {
-        public static int WallHeight;
+        private static readonly Stack<BuildingContext> _stack = new Stack<BuildingContext>();
+
+        public int WallHeight;
+
+        static BuildingContext()
+        {
+            _stack.Push(new BuildingContext(0));
+        }
+
+        public BuildingContext(int wallHeight)
+        {
+            WallHeight = wallHeight;
+            _stack.Push(this);
+        }
+
+        public static BuildingContext Current => _stack.Peek();
+
+        public void Dispose()
+        {
+            if (_stack.Count > 1)
+            _stack.Pop();
+        }
     }
 
     public class Building
     {
         public List<Wall> Walls = new List<Wall>();
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+           
+            foreach (var w in Walls)
+            {
+                sb.AppendLine(w.ToString());
+            }
+            
+            return sb.ToString();
+        }
     }
 
+    public struct Point
+    {
+        public int X, Y;
+
+        public Point(int x, int y)
+        {
+            X = x;
+            Y = y;
+        }
+
+        public override string ToString()
+        {
+            return $"X = {X} / Y = {Y}";
+        }
+    }
     public class Wall
     {
         public Point Start, End;
@@ -158,7 +207,12 @@ namespace Singleton
         {
             Start = start;
             End = end;
-            Height = BuildingContext.WallHeight;
+            Height = BuildingContext.Current.WallHeight;
+        }
+
+        public override string ToString()
+        {
+            return $"Start = {Start} -- End = {End} with Height = {Height}";
         }
     }
 
@@ -252,18 +306,27 @@ namespace Singleton
             var house = new Building();
 
             // ground floor at 3000
-            BuildingContext.WallHeight = 3000;
-            house.Walls.Add(new Wall(new Point(0, 0), new Point(5000, 0)));
-            house.Walls.Add(new Wall(new Point(0, 0), new Point(0, 4000)));
+            using (new BuildingContext(3000))
+            {
+                house.Walls.Add(new Wall(new Point(0, 0), new Point(5000, 0)));
+                house.Walls.Add(new Wall(new Point(0, 0), new Point(0, 4000)));
 
-            // 1st floor at 3500
-            BuildingContext.WallHeight = 3500;
-            house.Walls.Add(new Wall(new Point(0, 0), new Point(6000, 0)));
-            house.Walls.Add(new Wall(new Point(0, 0), new Point(0, 4000)));
+                Debug.WriteLine(house);
 
-            // ground floor at 3000
-            BuildingContext.WallHeight = 3000;
-            house.Walls.Add(new Wall(new Point(5000, 0), new Point(5000, 4000)));
+                // 1st floor at 3500
+                using (new BuildingContext(3500))
+                {
+                    house.Walls.Add(new Wall(new Point(0, 0), new Point(6000, 0)));
+                    house.Walls.Add(new Wall(new Point(0, 0), new Point(0, 4000)));
+
+                    Debug.WriteLine(house);
+                }
+
+                // ground floor at 3000
+                house.Walls.Add(new Wall(new Point(5000, 0), new Point(5000, 4000)));
+
+                Debug.WriteLine(house);
+            }
         }
     }
 }
