@@ -3,8 +3,11 @@ using MoreLinq;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using static System.Console;
 
 namespace Singleton
@@ -119,6 +122,22 @@ namespace Singleton
         }
     }
 
+    public sealed class PerThreadSingleton
+    {
+        private static readonly ThreadLocal<PerThreadSingleton> _threadInstance
+            = new ThreadLocal<PerThreadSingleton>(
+                () => new PerThreadSingleton());
+
+        private PerThreadSingleton()
+        {
+            Id = Thread.CurrentThread.ManagedThreadId;
+        }
+
+        public int Id;
+
+        public static PerThreadSingleton Instance = _threadInstance.Value;
+    }
+
     public class SingletonTests
     {
         [Test]
@@ -184,6 +203,23 @@ namespace Singleton
             var population = db.GetPopulation("﻿Tokyo");
 
             Assert.AreEqual(33200000, population);
+        }
+
+        [Test]
+        public async Task Test_per_thread_singleton()
+        {
+            var t1 = Task.Factory.StartNew(() =>
+            {
+                Debug.WriteLine($"T1: " + PerThreadSingleton.Instance.Id);
+            });
+
+            var t2 = Task.Factory.StartNew(() =>
+            {
+                Debug.WriteLine($"T2: " + PerThreadSingleton.Instance.Id);
+                Debug.WriteLine($"T2: " + PerThreadSingleton.Instance.Id);
+            });
+
+            await Task.WhenAll(t1, t2);
         }
     }
 }
