@@ -139,6 +139,11 @@ namespace Singleton
         public static PerThreadSingleton Instance = _threadInstance.Value;
     }
 
+    public class BuildingContext
+    {
+        public static int WallHeight;
+    }
+
     public class Building
     {
         public List<Wall> Walls = new List<Wall>();
@@ -149,11 +154,11 @@ namespace Singleton
         public Point Start, End;
         public int Height;
 
-        public Wall(Point start, Point end, int height)
+        public Wall(Point start, Point end)
         {
             Start = start;
             End = end;
-            Height = height;
+            Height = BuildingContext.WallHeight;
         }
     }
 
@@ -247,15 +252,18 @@ namespace Singleton
             var house = new Building();
 
             // ground floor at 3000
-            house.Walls.Add(new Wall(new Point(0, 0), new Point(5000, 0), 3000));
-            house.Walls.Add(new Wall(new Point(0, 0), new Point(0, 4000), 3000));
+            BuildingContext.WallHeight = 3000;
+            house.Walls.Add(new Wall(new Point(0, 0), new Point(5000, 0)));
+            house.Walls.Add(new Wall(new Point(0, 0), new Point(0, 4000)));
 
             // 1st floor at 3500
-            house.Walls.Add(new Wall(new Point(0, 0), new Point(6000, 0), 3500));
-            house.Walls.Add(new Wall(new Point(0, 0), new Point(0, 4000), 3500));
+            BuildingContext.WallHeight = 3500;
+            house.Walls.Add(new Wall(new Point(0, 0), new Point(6000, 0)));
+            house.Walls.Add(new Wall(new Point(0, 0), new Point(0, 4000)));
 
             // ground floor at 3000
-            house.Walls.Add(new Wall(new Point(5000, 0), new Point(5000, 4000), 3000));
+            BuildingContext.WallHeight = 3000;
+            house.Walls.Add(new Wall(new Point(5000, 0), new Point(5000, 4000)));
         }
     }
 }
