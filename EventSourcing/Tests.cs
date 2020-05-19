@@ -146,7 +146,7 @@ namespace EventSourcing
         public void Test1()
         {
             var eb = new EventBroker();
-            var p = new Person(eb) { Age = 32 };
+            var p = new Person(eb, 32);
 
             eb.Command(new ChangeAgeCommand(p, 33));
 
@@ -159,7 +159,13 @@ namespace EventSourcing
 
             Assert.AreEqual(33, age);
 
+            eb.UndoLast();
 
+            age = eb.Query<int>(new AgeQuery(p));
+
+            Assert.AreEqual(32, age);
+
+            Assert.AreEqual(2, eb.AllEvents.Count);
         }
     }
 }
