@@ -178,29 +178,31 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateStateless", "StateStat
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StateExercise", "StateExercise\StateExercise.csproj", "{57FD345B-FDCF-4F12-A541-54D209CF86E4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strategy", "Strategy\Strategy.csproj", "{BE2B3EB0-5225-42DF-B9D1-E39F0E0EAD06}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Strategy", "Strategy\Strategy.csproj", "{BE2B3EB0-5225-42DF-B9D1-E39F0E0EAD06}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyCompileTime", "StrategyCompileTime\StrategyCompileTime.csproj", "{F87FF8B9-641D-402E-870F-EC7062ACC8E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrategyCompileTime", "StrategyCompileTime\StrategyCompileTime.csproj", "{F87FF8B9-641D-402E-870F-EC7062ACC8E7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyComparisonEquality", "StrategyComparisonEquality\StrategyComparisonEquality.csproj", "{F492F763-55D0-4A92-8949-5A13CD4C5F28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrategyComparisonEquality", "StrategyComparisonEquality\StrategyComparisonEquality.csproj", "{F492F763-55D0-4A92-8949-5A13CD4C5F28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrategyExercise", "StrategyExercise\StrategyExercise.csproj", "{A2ADF51E-B97B-4CB5-8E35-2F913DD60784}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StrategyExercise", "StrategyExercise\StrategyExercise.csproj", "{A2ADF51E-B97B-4CB5-8E35-2F913DD60784}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateMethod", "TemplateMethod\TemplateMethod.csproj", "{F232E5FE-A772-42D5-AB6C-65CB063B11EC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateMethod", "TemplateMethod\TemplateMethod.csproj", "{F232E5FE-A772-42D5-AB6C-65CB063B11EC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateMethodFunctional", "TemplateMethodFunctional\TemplateMethodFunctional.csproj", "{23E8C6E0-C502-49C2-9065-F13A2C5218C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateMethodFunctional", "TemplateMethodFunctional\TemplateMethodFunctional.csproj", "{23E8C6E0-C502-49C2-9065-F13A2C5218C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TemplateMethodExercise", "TemplateMethodExercise\TemplateMethodExercise.csproj", "{220F6464-9709-4FB1-8FF6-23BDA2A6A390}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TemplateMethodExercise", "TemplateMethodExercise\TemplateMethodExercise.csproj", "{220F6464-9709-4FB1-8FF6-23BDA2A6A390}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisitorPrintingExpressions", "VisitorPrintingExpressions\VisitorPrintingExpressions.csproj", "{B8341CD4-AB88-4C3B-89BF-F8237ED9668E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisitorPrintingExpressions", "VisitorPrintingExpressions\VisitorPrintingExpressions.csproj", "{B8341CD4-AB88-4C3B-89BF-F8237ED9668E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisitorClassic", "VisitorClassic\VisitorClassic.csproj", "{BCC9405E-C4FB-4553-A36B-3F971CAFB3AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisitorClassic", "VisitorClassic\VisitorClassic.csproj", "{BCC9405E-C4FB-4553-A36B-3F971CAFB3AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisitorDynamic", "VisitorDynamic\VisitorDynamic.csproj", "{0B924DAD-7A80-429C-AF0C-C225E8C58DD9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisitorDynamic", "VisitorDynamic\VisitorDynamic.csproj", "{0B924DAD-7A80-429C-AF0C-C225E8C58DD9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisitorAcyclic", "VisitorAcyclic\VisitorAcyclic.csproj", "{8273B5B3-3632-4DF1-B095-E46B6082E035}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisitorAcyclic", "VisitorAcyclic\VisitorAcyclic.csproj", "{8273B5B3-3632-4DF1-B095-E46B6082E035}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisitorExercise", "VisitorExercise\VisitorExercise.csproj", "{A31188A1-E75A-4571-892B-D1D2426153DA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "VisitorExercise", "VisitorExercise\VisitorExercise.csproj", "{A31188A1-E75A-4571-892B-D1D2426153DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcing", "EventSourcing\EventSourcing.csproj", "{48A4667C-5BED-49F0-A604-6FCA8A8F3EEB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -596,6 +598,10 @@ Global
 		{A31188A1-E75A-4571-892B-D1D2426153DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A31188A1-E75A-4571-892B-D1D2426153DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A31188A1-E75A-4571-892B-D1D2426153DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48A4667C-5BED-49F0-A604-6FCA8A8F3EEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48A4667C-5BED-49F0-A604-6FCA8A8F3EEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48A4667C-5BED-49F0-A604-6FCA8A8F3EEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48A4667C-5BED-49F0-A604-6FCA8A8F3EEB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
