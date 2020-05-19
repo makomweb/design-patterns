@@ -1,6 +1,8 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 
 namespace EventSourcing
 {
@@ -10,21 +12,24 @@ namespace EventSourcing
 
     public class Person : IDisposable
     {
-        private int _age;
         readonly EventBroker _broker;
 
-        public Person(EventBroker broker)
+        public int Age { get; private set; }
+
+        public Person(EventBroker broker, int age)
         {
             _broker = broker;
             _broker.Commands += OnBrokerCommands;
             _broker.Queries += OnBrokerQueries;
+
+            Age = age;
         }
 
         private void OnBrokerQueries(object sender, Query e)
         {
             if (e is AgeQuery query && query.Target == this)
             {
-                e.Result = _age;
+                e.Result = Age;
             }
         }
 
@@ -32,8 +37,8 @@ namespace EventSourcing
         {
             if (e is ChangeAgeCommand command && command.Target == this)
             {
-                _broker.AddEvent(new AgeChangedEvent(this, _age, command.NewAge));
-                _age = command.NewAge;
+                _broker.AddEvent(new AgeChangedEvent(this, Age, command.NewAge));
+                Age = command.NewAge;
             }
         }
 
@@ -68,6 +73,16 @@ namespace EventSourcing
         public void AddEvent(Event ev)
         {
             AllEvents.Add(ev);
+        }
+
+        public void UndoLast()
+        {
+            var e = AllEvents.LastOrDefault();
+            if (e is AgeChangedEvent ace)
+            {
+                Command(new ChangeAgeCommand(ace.Target, ace.OldValue));
+                AllEvents.Remove(e);
+            }
         }
     }
 
@@ -118,6 +133,11 @@ namespace EventSourcing
             OldValue = oldValue;
             NewValue = newValue;
         }
+
+        public override string ToString()
+        {
+            return $"Person {Target} changed age from {OldValue} to {NewValue}.";
+        }
     }
 
     public class Tests
@@ -126,13 +146,20 @@ namespace EventSourcing
         public void Test1()
         {
             var eb = new EventBroker();
-            var p = new Person(eb);
+            var p = new Person(eb) { Age = 32 };
 
             eb.Command(new ChangeAgeCommand(p, 33));
+
+            foreach(var e in eb.AllEvents)
+            {
+                Debug.WriteLine(e);
+            }
 
             var age = eb.Query<int>(new AgeQuery(p));
 
             Assert.AreEqual(33, age);
+
+
         }
     }
 }
