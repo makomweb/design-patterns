@@ -32,6 +32,7 @@ namespace EventSourcing
         {
             if (e is ChangeAgeCommand command && command.Target == this)
             {
+                _broker.AddEvent(new AgeChangedEvent(this, _age, command.NewAge));
                 _age = command.NewAge;
             }
         }
@@ -62,6 +63,11 @@ namespace EventSourcing
         {
             Queries?.Invoke(this, q);
             return (T)q.Result;
+        }
+
+        public void AddEvent(Event ev)
+        {
+            AllEvents.Add(ev);
         }
     }
 
@@ -99,6 +105,19 @@ namespace EventSourcing
     public class Event
     {
         // backtrack
+    }
+
+    public class AgeChangedEvent : Event
+    {
+        public Person Target;
+        public int OldValue, NewValue;
+
+        public AgeChangedEvent(Person target, int oldValue, int newValue)
+        {
+            Target = target;
+            OldValue = oldValue;
+            NewValue = newValue;
+        }
     }
 
     public class Tests
