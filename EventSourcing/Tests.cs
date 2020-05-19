@@ -37,7 +37,11 @@ namespace EventSourcing
         {
             if (e is ChangeAgeCommand command && command.Target == this)
             {
-                _broker.AddEvent(new AgeChangedEvent(this, Age, command.NewAge));
+                if (command.GenerateEvent)
+                {
+                    _broker.AddEvent(new AgeChangedEvent(this, Age, command.NewAge));
+                }
+
                 Age = command.NewAge;
             }
         }
@@ -80,7 +84,7 @@ namespace EventSourcing
             var e = AllEvents.LastOrDefault();
             if (e is AgeChangedEvent ace)
             {
-                Command(new ChangeAgeCommand(ace.Target, ace.OldValue));
+                Command(new ChangeAgeCommand(ace.Target, ace.OldValue) { GenerateEvent = false });
                 AllEvents.Remove(e);
             }
         }
@@ -103,6 +107,7 @@ namespace EventSourcing
 
     public class Command : EventArgs
     {
+        public bool GenerateEvent = true;
     }
 
     public class ChangeAgeCommand : Command
@@ -157,15 +162,15 @@ namespace EventSourcing
 
             var age = eb.Query<int>(new AgeQuery(p));
 
-            Assert.AreEqual(33, age);
+            Assert.AreEqual(33, age, "Age should be set to 33 now!");
 
             eb.UndoLast();
 
             age = eb.Query<int>(new AgeQuery(p));
 
-            Assert.AreEqual(32, age);
+            Assert.AreEqual(32, age, "Age should be reverted to 32 again!");
 
-            Assert.AreEqual(2, eb.AllEvents.Count);
+            Assert.AreEqual(0, eb.AllEvents.Count, "There should be no events after undoing!");
         }
     }
 }
