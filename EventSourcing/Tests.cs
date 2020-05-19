@@ -1,7 +1,6 @@
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace EventSourcing
 {
@@ -9,7 +8,7 @@ namespace EventSourcing
     // CQS = command query separation
     // Command = do/change
 
-    public class Person
+    public class Person : IDisposable
     {
         private int _age;
         readonly EventBroker _broker;
@@ -17,6 +16,29 @@ namespace EventSourcing
         public Person(EventBroker broker)
         {
             _broker = broker;
+            _broker.Commands += OnBrokerCommands;
+            _broker.Queries += OnBrokerQueries;
+        }
+
+        private void OnBrokerQueries(object sender, Query e)
+        {
+            if (e is AgeQuery query && query.Target == this)
+            {
+
+            }
+        }
+
+        private void OnBrokerCommands(object sender, Command e)
+        {
+            if (e is ChangeAgeCommand command && command.Target == this)
+            {
+                _age = command.NewAge;
+            }
+        }
+
+        public void Dispose()
+        {
+            _broker.Commands -= OnBrokerCommands;
         }
     }
 
@@ -30,6 +52,11 @@ namespace EventSourcing
 
         // 3. query
         public event EventHandler<Query> Queries;
+
+        public void Command(Command c)
+        {
+            Commands?.Invoke(this, c);
+        }
     }
 
     public class Query
@@ -37,9 +64,30 @@ namespace EventSourcing
 
     }
 
-    public class Command
+    public class AgeQuery : Query
     {
+        public Person Target;
 
+        public AgeQuery(Person target)
+        {
+            Target = target;
+        }
+    }
+
+    public class Command : EventArgs
+    {
+    }
+
+    public class ChangeAgeCommand : Command
+    {
+        public Person Target;
+        public int NewAge;
+
+        public ChangeAgeCommand(Person target, int newAge)
+        {
+            Target = target;
+            NewAge = newAge;
+        }
     }
 
     public class Event
@@ -52,7 +100,10 @@ namespace EventSourcing
         [Test]
         public void Test1()
         {
-            var p = new Person();
+            var eb = new EventBroker();
+            var p = new Person(eb);
+
+            eb.Command(new ChangeAgeCommand(p, 33));
 
             Assert.NotNull(p);
         }
