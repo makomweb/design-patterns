@@ -206,6 +206,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventSourcing", "EventSourc
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SingletonPerThread", "SingletonPerThread\SingletonPerThread.csproj", "{D23ED6A1-17F8-4F9A-827A-BA68BA181741}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProxyViewModel", "ProxyViewModel\ProxyViewModel.csproj", "{BF8D9F42-DCED-4D99-A903-7B199E430ECD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -608,6 +610,10 @@ Global
 		{D23ED6A1-17F8-4F9A-827A-BA68BA181741}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D23ED6A1-17F8-4F9A-827A-BA68BA181741}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D23ED6A1-17F8-4F9A-827A-BA68BA181741}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF8D9F42-DCED-4D99-A903-7B199E430ECD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF8D9F42-DCED-4D99-A903-7B199E430ECD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF8D9F42-DCED-4D99-A903-7B199E430ECD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF8D9F42-DCED-4D99-A903-7B199E430ECD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
