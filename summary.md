@@ -1,5 +1,6 @@
+[Readme](README.md) | [Design Patterns](patterns.md) | [Summary](summary.md)
 
-# Course Summary
+# Patterns Summary
 
 ## Creational patterns
 
