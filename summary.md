@@ -71,7 +71,7 @@
     - tokens do not allow direct manipulation, but can be used in appropriate APIs
 
 - observer
-    - built into C# with the _event_ keyworkd
+    - built into C# with the _event_ keyword
     - additional support provided for properties, collections and observable streams
 
 - state
