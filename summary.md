@@ -75,9 +75,9 @@
     - additional support provided for properties, collections and observable streams
 
 - state
-    - we model systems by having one of a possible states and transitions between these states
+    - we model systems by having one of many possible states and transitions between these states
     - such a system is called _state machine_
-    - special frameworks exist to orchastrate state machines
+    - special frameworks exist to orchestrate state machines
 
 - strategy & template method
     - both patterns define an algorithm blueprint/placeholder
